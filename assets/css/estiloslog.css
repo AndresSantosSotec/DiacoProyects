@@ -1,0 +1,127 @@
+html {
+    height: -webkit-fill-available; 
+}
+
+body {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    height: 100%;
+}
+
+/* html, body{
+    height:100%;
+    margin:0;
+    display: flex;
+    flex-direction: column;
+  } */
+
+/* .contenedor{
+    width: 100% !important;
+    height: 100%;
+}
+
+.login{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+}
+
+.info{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+} */
+
+/* estilos para el efecto loader--------------------- */
+.loading--show {
+    display: flex;
+  }
+  
+  .loading--hide {
+    display: none;
+  }
+  
+  
+  /*dsfsafd*/
+  .loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(9, 13, 13, 0.8);
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+  }
+  
+  .loader-container .loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    border: solid 4px transparent;
+    border-top-color: #0dac77;
+    border-left-color: #0dac77;
+    border-radius: 50%;
+    animation: loader 1.4s linear infinite;
+  }
+  
+  .loader-container .loader2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 180px;
+    height: 180px;
+    border: solid 4px transparent;
+    /* border-top-color: #283fc3;
+    border-left-color: #283fc3; */
+    border-top-color: #0B7BFA;
+    border-left-color: #0B7BFA;
+    border-radius: 50%;
+    animation: loader2 1.2s both infinite;
+  }
+  
+  .loaderimg {
+    width: 140px;
+    height: 64px;
+    background-image: url("../img/logo-sinfondo.png");
+  
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  @keyframes loader {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+  
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+  
+  @keyframes loader2 {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+  
+    100% {
+      transform: translate(-50%, -50%) rotate(-360deg);
+    }
+  }
+  
+  /* fin------estilos para el efecto loader--------------------- */
