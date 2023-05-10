@@ -857,3 +857,11 @@ background: linear-gradient(135deg, rgba(190,81,30,1) 0%, rgba(200,86,6,1) 35%, 
   padding-left: 0.5px !important;
   padding-right: 0px !important;
 }
+
+/*aqui se guarda el carusel de imagenes*/
+
+.carousel-item img {
+  height: 500px;
+  width: 500px;
+  object-fit: cover;
+}
