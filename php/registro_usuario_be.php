@@ -18,7 +18,7 @@
         echo'
         <script>
         alert("El usuario Ah sido Almacenado de manera Correcta");
-        window.location="../index.php";
+        window.location="../Quejas.php";
         </script>';
     }
     else
@@ -28,7 +28,7 @@
         alert("Error el usuario No se alamceno de 
         manera Correcta!!
         intentalo otra vez");
-        window.location="../index.php";
+        window.location="../Quejas.php";
         </script>';
 
     }
