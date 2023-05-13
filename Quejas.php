@@ -123,13 +123,37 @@ $muni = mysqli_query($conexion, "SELECT `id_municipio`, `municipio`, `cod_muni`,
 								</div>
 								</div>
 
-								<div class="form-group col-sm-"><div class="input-group">
+								<div class="form-group col-sm-3"><div class="input-group">
 									<span class="input-group-text">Tel Referencia</span>
 											<input type="text" class="form-control" id="codcre" placeholder="Tel empresa/relacionado" value="" required>
 									</div>
 								</div>
 
 							</div>
+
+                            <div class="row crdbody">
+                                <div class="form-group col-sm-3">
+                                    <div class="input-group">
+                                        <span class="input-group-text">Fecha</span>
+                                        <input type="date" class="form-control" id="fecha" value="" min="2023-01-01" max="<?php echo date('Y-m-d'); ?>" required>
+                                    </div>
+                                </div>
+                                                                
+                                <div class="form-group col-sm-4">
+                                    <div class="input-group">
+                                        <span class="input-group-text">Dir_Negocio</span>
+                                        <input type="text" class="form-control" id="codcre" placeholder="Dirección Física del Negocio" value="" required>
+                                    </div>
+                                </div>
+                                                                
+                                <div class="form-group col-sm-4">
+                                    <div class="input-group">
+                                        <span class="input-group-text">Email</span>
+                                        <input type="email" class="form-control" id="email" placeholder="Correo Electrónico del Negocio" value="" required>
+                                    </div>
+                                </div>
+                            </div> <!-- ROW FIN -->
+
 
 							<div class="row crdbody justify-content-center">
 								<div class="form-floating col-sm-12">
