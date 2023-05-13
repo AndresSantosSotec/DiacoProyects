@@ -65,8 +65,7 @@ $muni = mysqli_query($conexion, "SELECT `id_municipio`, `municipio`, `cod_muni`,
 
 			<input id="condi" value="CreaProd" readonly hidden>
 			<div class="card crdbody">
-					<div class="card-header">
-							<h4>Detalle de Queja</h4></div>
+					<div class="card-header"><h4>Detalle de Queja</h4></div>
 							<div class="card-body">
 							<!-- FORMULARIO DE PRUEBAS   --->
 							<div class="row crdbody">
@@ -76,26 +75,20 @@ $muni = mysqli_query($conexion, "SELECT `id_municipio`, `municipio`, `cod_muni`,
 										</div>
 									</div>
 	
-									<div class="form-group col-sm-3"><div class="input-group">
+									<div class="form-group col-sm-4"><div class="input-group">
 											<span class="input-group-text">Dir_Negocio</span>
-													<input type="text" class="form-control" id="codcre" value="" required>
+													<input type="text" class="form-control" id="codcre" placeholder="Direccio Fisiaca del Negocio" value="" required>
 											</div>
 									</div>
 	
-									<div class="form-group col-sm-3"><div class="input-group">
-											<span class="input-group-text">Peso Producto</span>
-											<input type="text" class="form-control" id="prod" value="" required>
+									<div class="form-group col-sm-4"><div class="input-group">
+											<span class="input-group-text">Email</span>
+											<input type="email" class="form-control" id="prod" placeholder="correo Electronico del negocio" value="" required>
 											</div>
-									</div>
-	
-									<div class="form-group col-sm-3"><div class="input-group">
-										<span class="input-group-text">Numero Telefno</span>
-										<input type="text" class="form-control" id="prod" value="" required>
-										</div>
 									</div>
 	
 							</div> <!-- ROW FIN -->
-
+        
 							<!--$consu = mysqli_query($conexion, "SELECT `id_departamento`, `Departamento`, `ccod_Depa` FROM `tb_departamentos`");-->
 
 							<div class="row crdbody">
@@ -111,8 +104,8 @@ $muni = mysqli_query($conexion, "SELECT `id_municipio`, `municipio`, `cod_muni`,
                                         }
                                         ?> 
                                         </select>
-									</div>
-									</div>
+								</div>
+								</div>
 
 								<div class="form-group col-sm-3"><div class="input-group">
 									<span class="input-group-text">Municipio</span>
@@ -130,97 +123,43 @@ $muni = mysqli_query($conexion, "SELECT `id_municipio`, `municipio`, `cod_muni`,
 								</div>
 								</div>
 
-								<div class="form-group col-sm-3"><div class="input-group">
+								<div class="form-group col-sm-"><div class="input-group">
 									<span class="input-group-text">Tel Referencia</span>
-											<input type="text" class="form-control" id="codcre" value="" required>
-									</div>
-								</div>
-
-								<div class="form-group col-sm-3"><div class="input-group">
-									<span class="input-group-text">Tel Referencia</span>
-											<input type="text" class="form-control" id="codcre" value="" required>
+											<input type="text" class="form-control" id="codcre" placeholder="Tel empresa/relacionado" value="" required>
 									</div>
 								</div>
 
 							</div>
-							<div class="row crdbody">
-								<div class="form-floating col-sm-5">
+
+							<div class="row crdbody justify-content-center">
+								<div class="form-floating col-sm-12">
 									<textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-									<label for="floatingTextarea2">Referecias</label>
-								</div>
-
-							<div class="form-group col-sm-3"><div class="input-group">
-								<span class="input-group-text">Municipio</span>
-								<select id="Mon" class="form-select">
-									<option>Guatemala</option>
-									<option>Ciudad de Guatemala</option>
-									<option>Villa Nueva</option>
-									<option>Mixco</option>
-									<option>Quetzaltenango</option>
-									<option>San Juan Sacatepéquez</option>
-									<option>Villa Canales</option>
-									<option>Escuintla</option>
-									<option>Chinautla</option>
-									<option>Chimaltenango</option>
-									<option>Chichicastenango</option>
-									<option>Amatitlán</option>
-									<option>Cobán</option>
-									<option>Jalapa</option>
-									<option>Antigua Guatemala</option>
-									<option>Tecpán Guatemala</option>
-									<option>Zacapa</option>
-									<option>San Marcos</option>
-									<option>Retalhuleu</option>
-									<option>Santa Lucía Cotzumalguapa</option>
-									<option>San Benito</option>
-									<option>San Francisco</option>
-									<option>San Andrés</option>
-									<option>San José</option>
-									<option>Santa Ana</option>
-									<option>Santa Cruz</option>
-									<option>Sayaxché</option>
-									<option>Dolores</option>
-									<option>La Libertad</option>
-									<option>Poptún</option>
-									<option>Flores</option>
-									<option>San Luis</option>
-									<option>San Miguel</option>
-									<option>San Pedro</option>
-									<option>El Chal</option>
-									<option>Las Cruces</option>
-									<option>Melchor de Mencos</option>
-									<option>La Blanca</option>
-									<option>Tikal</option>
-									<option>Uaxactún</option>										
-										<option selected>------</option>
-								</select>
-							</div>
-							</div>
-
-							<div class="form-group col-sm-3"><div class="input-group">
-								<span class="input-group-text">Tel Referencia</span>
-										<input type="text" class="form-control" id="codcre" value="" required>
+									<label for="floatingTextarea2">Detalle de queja</label>
 								</div>
 							</div>
 
-						</div>
-						</div> <!-- ROW FIN -->
+                            <div class="row crdbody justify-content-center">
+								<div class="form-floating col-sm-12">
+									<textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+									<label for="floatingTextarea2">Detalle de Solucion</label>
+								</div>
+							</div>
 
-						
+                            <div class="row crdbody justify-content-center">
+                              <div class="col-sm-3">
+                                <div class="input-group">
+                                  <button class="btn btn-success me-2">Enivar Queja</button>
+                                  <button class="btn btn-danger">Cancelar</button>
+                                </div>
+                              </div>
+                            </div>
 
-						</div> <!-- ROW FIN -->
+							</div>
+                        </div>
+                    </div>
+                </div>
 
-
-							<div class="row crdbody">
-							
-
-						
-
-							</div> <!-- ROW FIN -->
-	
-											
-							</div><!-- ROW FIN  -->
-					</div>
+				</div>
 
 					<div class="card crdbody">
 						<section id="contact" class="contact">
