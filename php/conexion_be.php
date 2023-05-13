@@ -1,5 +1,5 @@
 <?php
-    $conexion=mysqli_connect("localhost","root","","login_register_db");
+    $conexion=mysqli_connect("localhost","root","","diaco_proyecto");
     
     if($conexion){
         echo'ola esta conectado';

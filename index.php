@@ -37,14 +37,16 @@
                         <button type="submit" class="btn btn-primary btn-lg btn-block" > <a href="DiacoInicio.html" class="btn btn-primary btn-lg btn-block">Inicio de sesión</a></button>
                     </form>
                     <!--Register-->
-                    <form action="" class="formulario__register">
-                        <h2>Regístrarse</h2>
-                        <input type="text" placeholder="Nombre completo">
-                        <input type="text" placeholder="Correo Electronico">
-                        <input type="text" placeholder="Usuario">
-                        <input type="password" placeholder="Contraseña">
-                        <button>Regístrarse</button>
+                    <form action="php/registro_usuario_be.php" method="POST" class="formulario__register">
+                        <h2>Registrarse</h2>
+                        <input type="text" placeholder="Nombre completo" name="nombre">
+                        <input type="text" placeholder="Correo electrónico" name="correo">
+                        <input type="text" placeholder="Usuario" name="Usuario">
+                        <input type="password" placeholder="Contraseña" name="password">
+                        <button>Registrarse</button>
                     </form>
+
+
                 </div>
             </div>
 
