@@ -22,44 +22,57 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Santos Delivery Express</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="Inicio.html">Inicio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="traking.html">Rastreo de envio</a>
-              </li>
-			  <li class="nav-item">
-                <a class="nav-link" href="solicitud.html">Solicitud de envio</a>
-              </li>
+	<div class="card crdbody">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container-fluid">
+			  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			  </button>
+			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				  <li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="listado_de_quejas.html">Inicio</a>
+				  </li>
 
-            </ul>
-          </div>
-        </div>
-      </nav>
+				  <li class="nav-item">
+					<a class="nav-link" href="Historico_de_casos.html">Impresion de caso</a>
+				  </li>
+
+				  <li class="nav-item">
+					<a class="nav-link" href="#"></a>
+				  </li>
+				  
+				  <li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					  Ingreso de Caso
+					</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+					  <li><a class="dropdown-item" href="#">Pantalla de queja simplificada</a></li>
+					  <li><a class="dropdown-item" href="#">Pantalla de queja Avanzada</a></li>
+									
+					</ul>
+				  </li>
+				</ul>
+			  </div>
+			</div>
+		</nav>
+	</div>
 
 			<input id="condi" value="CreaProd" readonly hidden>
 			<div class="card crdbody">
 					<div class="card-header">
-							<h4>Detalle de Envio</h4></div>
+							<h4>Detalle de Queja</h4></div>
 							<div class="card-body">
 							<!-- FORMULARIO DE PRUEBAS   --->
 							<div class="row crdbody">
 									<div class="form-group col-sm-3"><div class="input-group">
-										<span class="input-group-text">Nombre</span>
+										<span class="input-group-text">Negocio</span>
 										<input type="text" class="form-control" id="prod" value="" required>
 										</div>
 									</div>
 	
 									<div class="form-group col-sm-3"><div class="input-group">
-											<span class="input-group-text">Dir Remite</span>
+											<span class="input-group-text">Dir_Negocio</span>
 													<input type="text" class="form-control" id="codcre" value="" required>
 											</div>
 									</div>
@@ -78,7 +91,9 @@
 	
 							</div> <!-- ROW FIN -->
 
-								<div class="row crdbody">
+							
+
+							<div class="row crdbody">
 									<div class="form-group col-sm-2"><div class="input-group">
 										<span class="input-group-text">Departamento</span>
 										<select id="Mon" class="form-select">
@@ -95,17 +110,41 @@
 									</div>
 									</div>
 
-								<div class="form-group col-sm-3"><div class="input-group">
-										<span class="input-group-text">Direccion</span>
-												<input type="text" class="form-control" id="codcre" value="" required>
-										</div>
-								</div>
+									<div class="form-group col-sm-2"><div class="input-group">
+										<span class="input-group-text">Departamento</span>
+										<select id="Mon" class="form-select">
+											<option value="Guatemala">Guatemala</option>
+											<option value="Alta Verapaz">Alta Verapaz</option>
+											<option value="Baja Verapaz">Baja Verapaz</option>
+											<option value="Chimaltenango">Chimaltenango</option>
+											<option value="Chiquimula">Chiquimula</option>
+											<option value="El Progreso">El Progreso</option>
+											<option value="Escuintla">Escuintla</option>
+											<option value="Guatemala">Guatemala</option>
+											<option value="Huehuetenango">Huehuetenango</option>
+											<option value="Izabal">Izabal</option>
+											<option value="Jalapa">Jalapa</option>
+											<option value="Jutiapa">Jutiapa</option>
+											<option value="Petén">Petén</option>
+											<option value="Quetzaltenango">Quetzaltenango</option>
+											<option value="Quiché">Quiché</option>
+											<option value="Retalhuleu">Retalhuleu</option>
+											<option value="Sacatepéquez">Sacatepéquez</option>
+											<option value="San Marcos">San Marcos</option>
+											<option value="Santa Rosa">Santa Rosa</option>
+											<option value="Sololá">Sololá</option>
+											<option value="Suchitepéquez">Suchitepéquez</option>
+											<option value="Totonicapán">Totonicapán</option>
+											<option value="Zacapa">Zacapa</option>
+										</select>
+									</div>
+									</div>
 
 								<div class="form-group col-sm-3"><div class="input-group">
 									<span class="input-group-text">Tel Referencia</span>
 											<input type="text" class="form-control" id="codcre" value="" required>
 									</div>
-							</div>
+								</div>
 
 								<div class="form-group col-sm-2"><div class="input-group">
 									<span class="input-group-text">Municipio</span>
@@ -156,6 +195,33 @@
 								</div>
 							</div>
 							</div> <!-- ROW FIN -->
+
+						<div class="row crdbody">
+								<div class="form-group col-sm-3"><div class="input-group">
+									<span class="input-group-text">Negocio</span>
+									<input type="text" class="form-control" id="prod" value="" required>
+									</div>
+								</div>
+
+								<div class="form-group col-sm-3"><div class="input-group">
+										<span class="input-group-text">Dir_Negocio</span>
+												<input type="text" class="form-control" id="codcre" value="" required>
+										</div>
+								</div>
+
+								<div class="form-group col-sm-3"><div class="input-group">
+										<span class="input-group-text">Peso Producto</span>
+										<input type="text" class="form-control" id="prod" value="" required>
+										</div>
+								</div>
+
+								<div class="form-group col-sm-3"><div class="input-group">
+									<span class="input-group-text">Numero Telefno</span>
+									<input type="text" class="form-control" id="prod" value="" required>
+									</div>
+								</div>
+
+						</div> <!-- ROW FIN -->
 
 							<div class="row crdbody">
 								
