@@ -110,14 +110,14 @@ $muni = mysqli_query($conexion, "SELECT `id_municipio`, `municipio`, `cod_muni`,
 								<div class="form-group col-sm-3"><div class="input-group">
 									<span class="input-group-text">Municipio</span>
 									<select name='muni' id="Mon" class="form-select">
-                                    <?php 
-                                        while($munis = mysqli_fetch_array($muni))
-                                        {
-                                        ?>
-                                         <option value="<?php echo $munis['id_municipio']?>"> <?php echo $munis['municipio']?> </option>
-                                        <?php
-                                        }
-                                        ?>						
+                      <?php 
+                          while($munis = mysqli_fetch_array($muni))
+                          {
+                          ?>
+                           <option value="<?php echo $munis['id_municipio']?>"> <?php echo $munis['municipio']?> </option>
+                          <?php
+                          }
+                          ?>						
 										<option selected>------</option>
 									</select>
 								</div>
