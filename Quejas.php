@@ -87,7 +87,7 @@ $tipQuejas = mysqli_query($conexion, "SELECT id_queja,Ctip_queja,ccodQueja FROM 
 
     <input id="condi" value="CreaProd" readonly hidden>
 
-    <form>
+    <form action="php/registro_queja.php" method="POST" class="formulario__queja">
         <div class="card crdbody">
             <div class="card-header">
                 <h4>Detalle de Queja</h4>
@@ -106,21 +106,21 @@ $tipQuejas = mysqli_query($conexion, "SELECT id_queja,Ctip_queja,ccodQueja FROM 
                     <div class="form-group col-sm-3">
                         <div class="input-group">
                             <span class="input-group-text">Negocio</span>
-                            <input type="text" class="form-control" id="prod" value="" required>
+                            <input type="text" class="form-control" id="prod" name="Negocio" required>
                         </div>
                     </div>
                     <div class="form-group col-sm-4">
                         <div class="input-group">
                             <span class="input-group-text">Dir_Negocio</span>
                             <input type="text" class="form-control" id="codcre"
-                                placeholder="Direccio Fisiaca del Negocio" value="" required>
+                                placeholder="Direccio Fisiaca del Negocio" name="Dir_Negocio" required>
                         </div>
                     </div>
                     <div class="form-group col-sm-4">
                         <div class="input-group">
                             <span class="input-group-text">Email</span>
                             <input type="email" class="form-control" id="prod"
-                                placeholder="correo Electronico del negocio" value="" required>
+                                placeholder="correo Electronico del negocio" name="Email" required>
                         </div>
                     </div>
                 </div>
@@ -128,7 +128,7 @@ $tipQuejas = mysqli_query($conexion, "SELECT id_queja,Ctip_queja,ccodQueja FROM 
                     <div class="form-group col-sm-3">
                         <div class="input-group">
                             <span class="input-group-text">Departamento</span>
-                            <select name="Departamento" id="Mon" class="form-select">
+                            <select name="Departamento" id="Mon" name="Departamento" class="form-select">
                                 <?php while($datos = mysqli_fetch_array($consu)) { ?>
                                 <option value="<?php echo $datos['id_departamento']; ?>">
                                     <?php echo $datos['Departamento']; ?></option>
@@ -140,7 +140,7 @@ $tipQuejas = mysqli_query($conexion, "SELECT id_queja,Ctip_queja,ccodQueja FROM 
                     <div class="form-group col-sm-3">
                         <div class="input-group">
                             <span class="input-group-text">Municipio</span>
-                            <select name="muni" id="Mon" class="form-select">
+                            <select id="Mon" name="Municipio" class="form-select">
                                 <?php while($munis = mysqli_fetch_array($muni)) { ?>
                                 <option value="<?php echo $munis['id_municipio']; ?>"><?php echo $munis['municipio']; ?>
                                 </option>
@@ -152,8 +152,8 @@ $tipQuejas = mysqli_query($conexion, "SELECT id_queja,Ctip_queja,ccodQueja FROM 
 
                     <div class="form-group col-sm-3">
                         <div class="input-group">
-                            <span class="input-group-text">Región</span>
-                            <select name="muni" id="Mon" class="form-select">
+                            <span class="input-group-text">Region</span>
+                            <select id="Mon" name="Region" class="form-select">
                                 <?php while($regs = mysqli_fetch_array($reg)) { ?>
                                 <option value="<?php echo $regs['id_region']; ?>"><?php echo $regs['Region']; ?>
                                 </option>
@@ -167,20 +167,20 @@ $tipQuejas = mysqli_query($conexion, "SELECT id_queja,Ctip_queja,ccodQueja FROM 
                     <div class="form-group col-sm-3">
                         <div class="input-group">
                             <span class="input-group-text">Fecha</span>
-                            <input type="date" class="form-control" id="fecha" value="" min="2023-01-01"
+                            <input type="date" class="form-control" id="fecha" name="Fecha" min="2023-01-01"
                                 max="<?php echo date('Y-m-d'); ?>" required>
                         </div>
                     </div>
                     <div class="form-group col-sm-4">
                         <div class="input-group">
                             <span class="input-group-text">Propietario</span>
-                            <input type="text" class="form-control" id="codcre" value="" required>
+                            <input type="text" class="form-control" id="codpord" name="Propietario" required>
                         </div>
                     </div>
                     <div class="form-group col-sm-3">
                         <div class="input-group">
                             <span class="input-group-text">Tip Queja</span>
-                            <select name="muni" id="Mon" class="form-select">
+                            <select id="Mon" name="Tip_Queja" class="form-select">
                                 <?php while($ctipqjea = mysqli_fetch_array($tipQuejas)) { ?>
                                 <option value="<?php echo $ctipqjea['id_queja']; ?>"><?php echo $ctipqjea['Ctip_queja']; ?>
                                 </option>
@@ -195,28 +195,28 @@ $tipQuejas = mysqli_query($conexion, "SELECT id_queja,Ctip_queja,ccodQueja FROM 
                     <div class="form-group col-sm-3">
                         <div class="input-group">
                             <span class="input-group-text">Factura</span>
-                            <input type="text" class="form-control" id="codfatura" required>
+                            <input type="text" class="form-control"  name="Factura" id="codfatura" required>
                         </div>
                     </div>
                     <div class="form-group col-sm-4">
                         <div class="input-group">
-                            <span class="input-group-text">Dir_Negocio</span>
+                            <span class="input-group-text">Telefono</span>
                             <input type="text" class="form-control" id="codcre"
-                                placeholder="Dirección Física del Negocio" value="" required>
+                             placeholder="Telefono de Negocio" name="Telefono" value="" required>
                         </div>
                     </div>
                     <div class="form-group col-sm-4">
                         <div class="input-group">
-                            <span class="input-group-text">Email</span>
-                            <input type="email" class="form-control" id="email"
-                                placeholder="Correo Electrónico del Negocio" value="" required>
+                            <span class="input-group-text">Nit</span>
+                            <input type="text" class="form-control" 
+                            placeholder="NIT del Negocio" name="Nit" required>
                         </div>
                     </div>
                 </div> <!-- ROW FIN -->
 
                 <div class="row crdbody justify-content-center">
                     <div class="form-floating col-sm-12">
-                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                        <textarea class="form-control" name="Detalledequeja" placeholder="Leave a comment here" id="floatingTextarea2"
                             style="height: 100px"></textarea>
                         <label for="floatingTextarea2">Detalle de queja</label>
                     </div>
@@ -224,7 +224,7 @@ $tipQuejas = mysqli_query($conexion, "SELECT id_queja,Ctip_queja,ccodQueja FROM 
 
                 <div class="row crdbody justify-content-center">
                     <div class="form-floating col-sm-12">
-                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                        <textarea class="form-control" name="Sol" placeholder="Leave a comment here" id="floatingTextarea2"
                             style="height: 100px"></textarea>
                         <label for="floatingTextarea2">Detalle de Solucion</label>
                     </div>
@@ -241,7 +241,6 @@ $tipQuejas = mysqli_query($conexion, "SELECT id_queja,Ctip_queja,ccodQueja FROM 
                 </div>
             </div>
         </div>
-
     </form>
 
     </div>
