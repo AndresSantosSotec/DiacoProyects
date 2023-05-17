@@ -205,6 +205,7 @@ $tipQuejas = mysqli_query($conexion, "SELECT id_queja,Ctip_queja,ccodQueja FROM 
                              placeholder="Telefono de Negocio" name="Telefono" value="" required>
                         </div>
                     </div>
+                    <!--zxczxczxc-->
                     <div class="form-group col-sm-4">
                         <div class="input-group">
                             <span class="input-group-text">Nit</span>
