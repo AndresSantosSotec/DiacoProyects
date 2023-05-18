@@ -1,9 +1,10 @@
 <?php
-include './php/conexion_be.php';
-$consu = mysqli_query($conexion, "SELECT `id_departamento`, `Departamento`, `ccod_Depa` FROM `tb_departamentos`");
-$muni = mysqli_query($conexion, "SELECT `id_municipio`, `municipio`, `cod_muni`, `ccod_Depa` FROM `bd_municipio`");
-$reg = mysqli_query($conexion, "SELECT id_region,Region,Cod_region FROM `tb_region`");
-$tipQuejas = mysqli_query($conexion, "SELECT id_queja,Ctip_queja,ccodQueja FROM `tb_tip_queja`");
+    include './php/conexion_be.php';
+    //conecxiones a la base de datos
+    $consu = mysqli_query($conexion, "SELECT `id_departamento`, `Departamento`, `ccod_Depa` FROM `tb_departamentos`");
+    $muni = mysqli_query($conexion, "SELECT `id_municipio`, `municipio`, `cod_muni`, `ccod_Depa` FROM `bd_municipio`");
+    $reg = mysqli_query($conexion, "SELECT id_region,Region,Cod_region FROM `tb_region`");
+    $tipQuejas = mysqli_query($conexion, "SELECT id_queja,Ctip_queja,ccodQueja FROM `tb_tip_queja`");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -189,7 +190,7 @@ $tipQuejas = mysqli_query($conexion, "SELECT id_queja,Ctip_queja,ccodQueja FROM 
                             </select>
                         </div>
                     </div>
-                </div> <!-- ROW FIN -->
+                </div> <!-- ROW FIN --><!-- ROW FIN -->
 
                 <div class="row crdbody">
                     <div class="form-group col-sm-3">
