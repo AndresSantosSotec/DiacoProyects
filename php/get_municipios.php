@@ -12,4 +12,5 @@ while($munis = mysqli_fetch_array($resultado))
 {
     echo "<option value='{$munis['id_municipio']}'>{$munis['municipio']}</option>";
 }
+
 ?>

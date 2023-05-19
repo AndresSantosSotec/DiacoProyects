@@ -31,7 +31,7 @@
 			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				  <li class="nav-item">
-					<a class="nav-link active" aria-current="page" href="listado_de_quejas.html">Inicio</a>
+					<a class="nav-link active" aria-current="page" href="DiacoInicio.php">Inicio</a>
 				  </li>
 
 				  <li class="nav-item">
@@ -44,12 +44,13 @@
 				  
 				  <li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-					  Ingreso de Caso
+					  Ingreso de Caso y servicios
 					</a>
 					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-					  <li><a class="dropdown-item" href="#">Pantalla de queja simplificada</a></li>
-					  <li><a class="dropdown-item" href="#">Pantalla de queja Avanzada</a></li>
-										<li><a class="dropdown-item" href="#">Productos de Ahorro</a></li>
+					  <li><a class="dropdown-item" href="Quejas.php">Pantalla de queja</a></li>
+					  <li><a class="dropdown-item" href="#">Comercios</a></li>
+					  <li><a class="dropdown-item" href="#">Propietarios</a></li>
+					  <li><a class="dropdown-item" href="#">Lista de quejas</a></li>
 					</ul>
 				  </li>
 				</ul>

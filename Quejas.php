@@ -47,43 +47,42 @@
 <body>
     <!--Aqui es donde inicioa el nav bar-->
     <div class="card crdbody">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="listado_de_quejas.html">Inicio</a>
-                        </li>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container-fluid">
+			  <a class="navbar-brand" href="#">DIACO</a>
+			  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			  </button>
+			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				  <li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="DiacoInicio.php">Inicio</a>
+				  </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="Historico_de_casos.html">Impresion de caso</a>
-                        </li>
+				  <li class="nav-item">
+					<a class="nav-link" href="Historico_de_casos.html">Impresion de caso</a>
+				  </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"></a>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Ingreso de Caso
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Pantalla de queja simplificada</a></li>
-                                <li><a class="dropdown-item" href="#">Pantalla de queja Avanzada</a></li>
-
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
+				  <li class="nav-item">
+					<a class="nav-link" href="#"></a>
+				  </li>
+				  
+				  <li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					  Ingreso de Caso y servicios
+					</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+					  <li><a class="dropdown-item" href="Quejas.php">Pantalla de queja</a></li>
+					  <li><a class="dropdown-item" href="#">Comercios</a></li>
+					  <li><a class="dropdown-item" href="#">Propietarios</a></li>
+					  <li><a class="dropdown-item" href="#">Lista de quejas</a></li>
+					</ul>
+				  </li>
+				</ul>
+			  </div>
+			</div>
+		</nav>
+	</div>
     <!--Aqui cierra el nav bar-->
 
     <input id="condi" value="CreaProd" readonly hidden>
@@ -95,6 +94,7 @@
             </div>
             <div class="card-body">
                 <!-- FORMULARIO DE PRUEBAS   --->
+
                 <div class="row crdbody">
                     <div class="col-md-3">
                         <button type="button" class="btn btn-outline-primary" title="Buscar Cliente"
@@ -103,6 +103,7 @@
                         </button>
                     </div>
                 </div>
+
                 <div class="row crdbody">
                     <div class="form-group col-sm-3">
                         <div class="input-group">
@@ -137,7 +138,7 @@
                             </select>
                         </div>
                     </div>
-
+,
                     <div class="form-group col-sm-3">
                         <div class="input-group">
                             <span class="input-group-text">Municipio</span>

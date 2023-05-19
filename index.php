@@ -38,7 +38,7 @@
                     <h2>Iniciar Sesión</h2>
                     <input type="text" placeholder="Correo Electronico">
                     <input type="password" placeholder="Contraseña">
-                    <button type="submit" class="btn btn-primary btn-lg btn-block"> <a href="DiacoInicio.html"
+                    <button type="submit" class="btn btn-primary btn-lg btn-block"> <a href="DiacoInicio.php"
                             class="btn btn-primary btn-lg btn-block">Inicio de sesión</a></button>
                 </form>
                 <!--Register-->
