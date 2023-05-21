@@ -43,7 +43,7 @@
 </head>
 
 <body>
-    <!--Aqui es donde inicioa el nav bar-->
+
     <div class="card crdbody">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
@@ -75,7 +75,7 @@
             </div>
         </nav>
     </div>
-    <!--Aqui cierra el nav bar-->
+
 
     <input id="condi" value="CreaProd" readonly hidden>
 
