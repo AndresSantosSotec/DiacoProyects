@@ -5,6 +5,7 @@
     $muni = mysqli_query($conexion, "SELECT `id_municipio`, `municipio`, `cod_muni`, `ccod_Depa` FROM `bd_municipio`");
     $reg = mysqli_query($conexion, "SELECT id_region,Region,Cod_region FROM `tb_region`");
     $due = mysqli_query($conexion, "SELECT id_dueño,Nombre FROM `tb_dueño`");
+    $nego = mysqli_query($conexion, "SELECT id_tip_nego,TipoNegocio FROM `tb_tip_negocio`");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -86,7 +87,7 @@
 
     <input id="condi" value="CreaProd" readonly hidden>
 
-    <form action="php/registro_queja.php" method="POST" class="formulario__queja">
+    <form action="php/registros.php" method="POST" class="formulario__queja">
         <div class="card crdbody">
             <div class="card-header">
                 <h4>Detalle de Comercio</h4>
@@ -127,7 +128,7 @@
 
                 <!--aber el row-->
                 <div class="row crdbody">
-                    <div class="form-group col-sm-2">
+                    <div class="form-group col-sm-3">
                         <div class="input-group">
                             <span class="input-group-text">Region</span>
                             <select id="Mon" name="Region" class="form-select">
@@ -140,7 +141,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group col-sm-2">
+                    <div class="form-group col-sm-3">
                         <div class="input-group">
                             <span class="input-group-text">Departamento</span>
                             <select name="Departamento" id="Mon" name="Departamento" class="form-select">
@@ -151,8 +152,8 @@
                             </select>
                         </div>
                     </div>
-                    ,
-                    <div class="form-group col-sm-2">
+                    
+                    <div class="form-group col-sm-3">
                         <div class="input-group">
                             <span class="input-group-text">Municipio</span>
                             <select id="Mon" name="Municipio" class="form-select">
@@ -179,9 +180,23 @@
                     </div>
 
                 </div>
+                <div class="form-group col-sm-3">
+                        <div class="input-group">
+                            <span class="input-group-text">Tipo de negocio</span>
+                            <select id="Mon" name="Nego" class="form-select">
+                                <?php while($NE = mysqli_fetch_array($nego)) { ?>
+                                <option value="<?php echo $NE['id_tip_nego']; ?>"><?php echo $NE['TipoNegocio']; ?>
+                                </option>
+                                <?php } ?>
+                                <option selected>------</option>
+                            </select>
+                        </div>
+                    </div> 
 
             </div><!-- ROW FIN -->
+            
 
+        <div class="row crdbody">
             <div class="row crdbody justify-content-center">
                 <div class="col-sm-3">
                     <div class="input-group">
@@ -224,9 +239,10 @@
                     <?php
                     $consulta= mysqli_query($conexion, "SELECT `id_negocio`, `Nombre`, `Correo_Negocio`, `Telefono_Negocio`, `Direccion`, `Tipo_Negocio`, `Id_dueño`,
                     `Id_departamento`, `Id_muni`, `id_region` FROM `tb_negocio`");
-                    $i=1;
+                    $i=0;
                     //id_negocio0`, `Nombre1`, `Correo Negocio2`, `Telefono Negocio3`, `Direccion4`, `Tipo Negocio5`, `Id_dueño6`,`Id_departamento7`, `Id_muni8`, `id_region9`
                     while ($re= mysqli_fetch_array($consulta, MYSQLI_NUM)) {
+                        $i++;
                         echo'
                     <tr>
                         <th scope="row">'.$i.'</th>
