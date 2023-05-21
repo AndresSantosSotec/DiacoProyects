@@ -152,7 +152,7 @@
                             </select>
                         </div>
                     </div>
-                    
+
                     <div class="form-group col-sm-3">
                         <div class="input-group">
                             <span class="input-group-text">Municipio</span>
@@ -181,37 +181,37 @@
 
                 </div>
                 <div class="form-group col-sm-3">
-                        <div class="input-group">
-                            <span class="input-group-text">Tipo de negocio</span>
-                            <select id="Mon" name="Nego" class="form-select">
-                                <?php while($NE = mysqli_fetch_array($nego)) { ?>
-                                <option value="<?php echo $NE['id_tip_nego']; ?>"><?php echo $NE['TipoNegocio']; ?>
-                                </option>
-                                <?php } ?>
-                                <option selected>------</option>
-                            </select>
-                        </div>
-                    </div> 
+                    <div class="input-group">
+                        <span class="input-group-text">Tipo de negocio</span>
+                        <select id="Mon" name="Nego" class="form-select">
+                            <?php while($NE = mysqli_fetch_array($nego)) { ?>
+                            <option value="<?php echo $NE['id_tip_nego']; ?>"><?php echo $NE['TipoNegocio']; ?>
+                            </option>
+                            <?php } ?>
+                            <option selected>------</option>
+                        </select>
+                    </div>
+                </div>
 
             </div><!-- ROW FIN -->
-            
 
-        <div class="row crdbody">
-            <div class="row crdbody justify-content-center">
-                <div class="col-sm-3">
-                    <div class="input-group">
-                        <button class="btn btn-success me-2"><i class="fas fa-paper-plane"></i> Insertar</button>
-                        <button class="btn btn-danger" onclick="reloadPage()"><i
-                                class="fas fa-trash-alt"></i>Cancelar</button>
-                        <script>
-                        function reloadPage() {
-                            location.reload();
-                        }
-                        </script>
+
+            <div class="row crdbody">
+                <div class="row crdbody justify-content-center">
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <button class="btn btn-success me-2"><i class="fas fa-paper-plane"></i> Insertar</button>
+                            <button class="btn btn-danger" onclick="reloadPage()"><i
+                                    class="fas fa-trash-alt"></i>Cancelar</button>
+                            <script>
+                            function reloadPage() {
+                                location.reload();
+                            }
+                            </script>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
     </form>
 
     <div class="card crdbody">
@@ -237,31 +237,79 @@
                 </thead>
                 <tbody>
                     <?php
-                    $consulta= mysqli_query($conexion, "SELECT `id_negocio`, `Nombre`, `Correo_Negocio`, `Telefono_Negocio`, `Direccion`, `Tipo_Negocio`, `Id_dueño`,
-                    `Id_departamento`, `Id_muni`, `id_region` FROM `tb_negocio`");
-                    $i=0;
-                    //id_negocio0`, `Nombre1`, `Correo Negocio2`, `Telefono Negocio3`, `Direccion4`, `Tipo Negocio5`, `Id_dueño6`,`Id_departamento7`, `Id_muni8`, `id_region9`
-                    while ($re= mysqli_fetch_array($consulta, MYSQLI_NUM)) {
+                    $consulta = mysqli_query($conexion, "SELECT `id_negocio`, `Nombre`, `Correo_Negocio`, `Telefono_Negocio`, `Direccion`, `Tipo_Negocio`, `Id_dueño`,
+                                    `Id_departamento`, `Id_muni`, `id_region` FROM `tb_negocio`");
+                    $i = 0;
+                                            
+                    while ($re = mysqli_fetch_array($consulta, MYSQLI_NUM)) {
                         $i++;
-                        echo'
-                    <tr>
-                        <th scope="row">'.$i.'</th>
-                        <td>'.$re[1].'</td>
-                        <td>'.$re[2].'</td>
-                        <td>'.$re[3].'</td>
-                        <td>'.$re[4].'</td>
-                        <td>'.$re[5].'</td>
-                        <td>'.$re[6].'</td>
-                        <td>'.$re[7].'</td>
-                        <td>'.$re[8] .'</td>
-                        <td>'.$re[9] .'</td>
-                        <td>
-                            <button type="button" class="btn btn-primary"><i class="fa-solid fa-pen"></i></button>
-                            <button type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
-                        </td>
-                    </tr>';
+                        $tipoNegocio = obtenerNombreTipoNegocio($re[5]); // Obtener nombre del tipo de negocio por su ID
+                        $dueno = obtenerNombreDueno($re[6]); // Obtener nombre del dueño por su ID
+                        $departamento = obtenerNombreDepartamento($re[7]); // Obtener nombre del departamento por su ID
+                        $municipio = obtenerNombreMunicipio($re[8]); // Obtener nombre del municipio por su ID
+                        $region = obtenerNombreRegion($re[9]); // Obtener nombre de la región por su ID
+                    
+                        echo '
+                            <tr>
+                                <th scope="row">' . $i . '</th>
+                                <td>' . $re[1] . '</td>
+                                <td>' . $re[2] . '</td>
+                                <td>' . $re[3] . '</td>
+                                <td>' . $re[4] . '</td>
+                                <td>' . $tipoNegocio . '</td>
+                                <td>' . $dueno . '</td>
+                                <td>' . $departamento . '</td>
+                                <td>' . $municipio . '</td>
+                                <td>' . $region . '</td>
+                                <td>
+                                    <button type="button" class="btn btn-primary"><i class="fa-solid fa-pen"></i></button>
+                                    <button type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                                </td>
+                            </tr>';
+                    }
+                    
+                    // Funciones para obtener los nombres correspondientes a los IDs de los campos
+                    function obtenerNombreTipoNegocio($id)
+                    {
+                        global $conexion;
+                        $consulta = mysqli_query($conexion, "SELECT `TipoNegocio` FROM `tb_tip_negocio` WHERE `id_tip_nego` = '$id'");
+                        $resultado = mysqli_fetch_array($consulta);
+                        return $resultado[0];
+                    }
+                    
+                    function obtenerNombreDueno($id)
+                    {
+                        global $conexion;
+                        $consulta = mysqli_query($conexion, "SELECT `Nombre` FROM `tb_dueño` WHERE `id_dueño` = '$id'");
+                        $resultado = mysqli_fetch_array($consulta);
+                        return $resultado[0];
+                    }
+                    
+                    function obtenerNombreDepartamento($id)
+                    {
+                        global $conexion;
+                        $consulta = mysqli_query($conexion, "SELECT `Departamento` FROM `tb_departamentos` WHERE `id_departamento` = '$id'");
+                        $resultado = mysqli_fetch_array($consulta);
+                        return $resultado[0];
+                    }
+                    
+                    function obtenerNombreMunicipio($id)
+                    {
+                        global $conexion;
+                        $consulta = mysqli_query($conexion, "SELECT `municipio` FROM `bd_municipio` WHERE `id_municipio` = '$id'");
+                        $resultado = mysqli_fetch_array($consulta);
+                        return $resultado[0];
+                    }
+                    
+                    function obtenerNombreRegion($id)
+                    {
+                        global $conexion;
+                        $consulta = mysqli_query($conexion, "SELECT `Region` FROM `tb_region` WHERE `id_region` = '$id'");
+                        $resultado = mysqli_fetch_array($consulta);
+                        return $resultado[0];
                     }
                     ?>
+
 
                 </tbody>
             </table>
