@@ -31,6 +31,7 @@
     </script>
     </script>
     <script>
+         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     src = "js/functions.js"
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"
