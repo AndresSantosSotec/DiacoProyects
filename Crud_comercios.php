@@ -233,7 +233,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
+                <?php
                 $consulta = mysqli_query($conexion, "SELECT `id_negocio`, `Nombre`, `Correo_Negocio`, `Telefono_Negocio`, `Direccion`,
                 `Tipo_Negocio`, `Id_dueño`, `Id_departamento`, `Id_muni`, `id_region` FROM `tb_negocio` where Estado=1");
                 $i = 0;

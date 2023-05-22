@@ -87,98 +87,60 @@
 
     <input id="condi" value="CreaProd" readonly hidden>
 
-    <form action="php/registro_queja.php" method="POST" class="formulario__queja">
+    <form action="php/Regristro_dueños.php" method="POST" class="formulario__queja">
         <div class="card crdbody">
             <div class="card-header">
-                <h4>Detalle de Comercio</h4>
+                <h4>Detalle de Propietario</h4>
             </div>
             <div class="card-body">
                 <!-- FORMULARIO DE PRUEBAS   --->
                 <div class="row crdbody">
                     <div class="form-group col-sm-3">
                         <div class="input-group">
-                            <span class="input-group-text">Nombre Negocio</span>
-                            <input type="text" class="form-control" id="prod" name="Negocio" required>
+                            <span class="input-group-text">Nombre</span>
+                            <input type="text" class="form-control" id="prod" name="Nombre" required>
                         </div>
                     </div>
                     <div class="form-group col-sm-3">
                         <div class="input-group">
-                            <span class="input-group-text">Dir_Negocio</span>
-                            <input type="text" class="form-control" id="codcre"
-                                placeholder="Direccio Fisiaca del Negocio" name="Dir_Negocio" required>
+                            <span class="input-group-text">Dir_Dueño</span>
+                            <input type="text" class="form-control" id="Dir_dueño"
+                                placeholder="Direccio Fisiaca del Negocio" name="Dir_dueño" required>
                         </div>
                     </div>
                     <div class="form-group col-sm-3">
                         <div class="input-group">
                             <span class="input-group-text">Email</span>
-                            <input type="email" class="form-control" id="prod"
-                                placeholder="correo Electronico del negocio" name="Email" required>
+                            <input type="email" class="form-control" placeholder="correo Electronico del negocio"
+                                id=email name="Email" required>
                         </div>
                     </div>
 
                     <div class="form-group col-sm-3">
                         <div class="input-group">
                             <span class="input-group-text">Telefono</span>
-                            <input type="text" class="form-control" id="codcre" placeholder="Telefono de Negocio"
+                            <input type="text" class="form-control" id="tel" placeholder="Telefono de Negocio"
                                 name="Telefono" value="" required>
                         </div>
                     </div>
 
                 </div>
-
-<!--aber el row-->
+                <!--aber el row-->
                 <div class="row crdbody">
-                    <div class="form-group col-sm-2">
+                    <div class="form-group col-sm-3">
                         <div class="input-group">
-                            <span class="input-group-text">Region</span>
-                            <select id="Mon" name="Region" class="form-select">
-                                <?php while($regs = mysqli_fetch_array($reg)) { ?>
-                                <option value="<?php echo $regs['id_region']; ?>"><?php echo $regs['Region']; ?>
-                                </option>
-                                <?php } ?>
-                                <option selected>------</option>
-                            </select>
+                            <span class="input-group-text">Nit</span>
+                            <input type="text" class="form-control" id="NIT" name="NIT" required>
                         </div>
                     </div>
 
-                    <div class="form-group col-sm-2">
+                    <div class="form-group col-sm-3">
                         <div class="input-group">
-                            <span class="input-group-text">Departamento</span>
-                            <select name="Departamento" id="Mon" name="Departamento" class="form-select">
-                                <?php while($datos = mysqli_fetch_array($consu)) { ?>
-                                <option value="<?php echo $datos['id_departamento']; ?>">
-                                    <?php echo $datos['Departamento']; ?></option>
-                                <?php } ?>
-                            </select>
+                            <span class="input-group-text">DPI</span>
+                            <input type="text" class="form-control" id="DPI" placeholder="Direccio Fisiaca del Negocio"
+                                name="DPI" required>
                         </div>
                     </div>
-                    ,
-                    <div class="form-group col-sm-2">
-                        <div class="input-group">
-                            <span class="input-group-text">Municipio</span>
-                            <select id="Mon" name="Municipio" class="form-select">
-                                <?php while($munis = mysqli_fetch_array($muni)) { ?>
-                                <option value="<?php echo $munis['id_municipio']; ?>"><?php echo $munis['municipio']; ?>
-                                </option>
-                                <?php } ?>
-                                <option selected>------</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group col-sm-2">
-                        <div class="input-group">
-                            <span class="input-group-text">Propietario</span>
-                            <select id="Mon" name="Dueño" class="form-select">
-                                <?php while($Dues = mysqli_fetch_array($due)) { ?>
-                                <option value="<?php echo $Dues['id_dueño']; ?>"><?php echo $Dues['Nombre']; ?>
-                                </option>
-                                <?php } ?>
-                                <option selected>------</option>
-                            </select>
-                        </div>
-                    </div>
-
                 </div>
 
             </div><!-- ROW FIN -->
@@ -211,39 +173,51 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Nombre</th>
-                        <th scope="col">Correo</th>
                         <th scope="col">Telefono</th>
+                        <th scope="col">Dpi</th>
                         <th scope="col">Direccion</th>
-                        <th scope="col">Tipo Negocio</th>
-                        <th scope="col">Dueño</th>
-                        <th scope="col">Departamento</th>
-                        <th scope="col">Municipio</th>
-                        <th scope="col">Region</th>
+                        <th scope="col">Nit</th>
+                        <th scope="col">Email</th>
                         <th scope="col">Opciones</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <?php
+            $consulta = mysqli_query($conexion, "SELECT id_dueño, Nombre, Telefono_dueño, Dpi, Direccion, Nit, Email FROM `tb_dueño`;");
+            while ($re = mysqli_fetch_array($consulta, MYSQLI_NUM)) {
+                echo '
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Nombre</td>
-                        <td>Correo</td>
-                        <td>Telefono</td>
-                        <td>Direcc</td>
-                        <td>Tipo Nego</td>
-                        <td>Dueño</td>
-                        <td>Departamento</td>
-                        <td>Munici</td>
-                        <td>Region</td>
+                        <th scope="row">' . $re[0] . '</th>
+                        <td>' . $re[1] . '</td>
+                        <td>' . $re[2] . '</td>
+                        <td>' . $re[3] . '</td>
+                        <td>' . $re[4] . '</td>
+                        <td>' . $re[5] . '</td>
+                        <td>' . $re[6] . '</td>
                         <td>
-                            <button type="button" class="btn btn-primary"><i class="fa-solid fa-pen"></i></button>
-                            <button type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                            <button type="button" class="btn btn-primary" onclick="editarPropietario(' . $re[0] . ', \'' . $re[1] . '\', \'' . $re[2] . '\', \'' . $re[3] . '\', \'' . $re[4] . '\', \'' . $re[5] . '\', \'' . $re[6] . '\')">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button type="button" class="btn btn-danger" id="btnEliminar"><i class="fa-solid fa-trash"></i></button>
                         </td>
-                    </tr>
+                    </tr>';
+            }
+            ?>
                 </tbody>
             </table>
-
-
         </div>
+
+        <script>
+        function editarPropietario(id, nombre, telefono, dpi, direccion, nit, email) {
+            document.getElementById('prod').value = nombre;
+            document.getElementById('tel').value = telefono;
+            document.getElementById('DPI').value = dpi;
+            document.getElementById('Dir_dueño').value = direccion;
+            document.getElementById('NIT').value = nit;
+            document.getElementById('email').value = email;
+        }
+        </script>
+
     </div>
     </div>
 
