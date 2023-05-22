@@ -4,39 +4,61 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js
 <link href="
 https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css
 " rel="stylesheet">
-<?php  
+<?php
 include 'conexion_be.php';
-$Negocio=$_POST['Negocio'];
-$Dir_Negocio=$_POST['Dir_Negocio'];
-$Email=$_POST['Email'];
-$Telefono=$_POST['Telefono'];
-$Region=$_POST['Region'];
-$Departamento=$_POST['Departamento'];
-$Municipio=$_POST['Municipio'];
-$Dueño=$_POST['Dueño'];
-$Nego=$_POST['Nego'];
 
+$Negocio = $_POST['Negocio'];
+$Dir_Negocio = $_POST['Dir_Negocio'];
+$Email = $_POST['Email'];
+$Telefono = $_POST['Telefono'];
+$Region = $_POST['Region'];
+$Departamento = $_POST['Departamento'];
+$Municipio = $_POST['Municipio'];
+$Dueño = $_POST['Dueño'];
+$Nego = $_POST['Nego'];
 
-$Negocio = "INSERT INTO `tb_negocio`( `Nombre`, `Correo_Negocio`, `Telefono_Negocio`, `Direccion`,
-`Tipo_Negocio`, `Id_dueño`, `Id_departamento`, `Id_muni`, `id_region`)
-VALUES ('$Negocio', '$Email', '$Telefono', '$Dir_Negocio', '$Nego', '$Dueño', '$Departamento', '$Municipio', '$Region')";
+// Verificar si ya existe un registro con el mismo nombre de negocio
+$consultaExistencia = mysqli_query($conexion, "SELECT COUNT(*) FROM `tb_negocio` WHERE `Nombre` = '$Negocio'");
+$existeRegistro = mysqli_fetch_array($consultaExistencia)[0];
 
-$ejecutar=mysqli_query($conexion, $Negocio);
+if ($existeRegistro) {
+    // Actualizar registro existente
+    $actualizarNegocio = "UPDATE `tb_negocio` SET `Correo_Negocio`='$Email', `Telefono_Negocio`='$Telefono', `Direccion`='$Dir_Negocio', `Tipo_Negocio`='$Nego', `Id_dueño`='$Dueño', `Id_departamento`='$Departamento', `Id_muni`='$Municipio', `id_region`='$Region' WHERE `Nombre`='$Negocio'";
+    $ejecutarActualizar = mysqli_query($conexion, $actualizarNegocio);
 
-if ($ejecutar) {
-    echo '
-        <script>
-        alert("el Negocio ah sido almacenada de manera correcta");
-        window.location="../Crud_comercios.php";
-        </script>';
+    if ($ejecutarActualizar) {
+        echo '
+            <script>
+            alert("El negocio ha sido actualizado correctamente");
+            window.location="../Crud_comercios.php";
+            </script>';
+    } else {
+        echo '
+            <script>
+            alert("Ha ocurrido un error al actualizar el negocio");
+            window.location="../Crud_comercios.php";
+            </script>';
+    }
 } else {
-    echo '
-        <script>
-        alert("La Negocio no ha sido almacenada de manera correcta");
-        window.location="../Crud_comercios.php";
-        </script>';
+    // Insertar nuevo registro
+    $insertarNegocio = "INSERT INTO `tb_negocio`(`Nombre`, `Correo_Negocio`, `Telefono_Negocio`, `Direccion`, `Tipo_Negocio`, `Id_dueño`, `Id_departamento`, `Id_muni`, `id_region`) VALUES ('$Negocio', '$Email', '$Telefono', '$Dir_Negocio', '$Nego', '$Dueño', '$Departamento', '$Municipio', '$Region')";
+    $ejecutarInsertar = mysqli_query($conexion, $insertarNegocio);
+
+    if ($ejecutarInsertar) {
+        echo '
+            <script>
+            alert("El negocio ha sido almacenado correctamente");
+            window.location="../Crud_comercios.php";
+            </script>';
+    } else {
+        echo '
+            <script>
+            alert("Ha ocurrido un error al almacenar el negocio");
+            window.location="../Crud_comercios.php";
+            </script>';
+    }
 }
 
 mysqli_close($conexion);
-
 ?>
+
