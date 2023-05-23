@@ -12,6 +12,16 @@ $Municipio = $_POST['Municipio'];
 $Dueño = $_POST['Dueño'];
 $Nego = $_POST['Nego'];
 
+// Verificar si algún campo está vacío
+if (empty($Negocio) || empty($Dir_Negocio) || empty($Email) || empty($Telefono) || empty($Region) || empty($Departamento) || empty($Municipio) || empty($Dueño) || empty($Nego)) {
+    echo '
+        <script>
+        alert("Todos los campos son obligatorios. Por favor, completa todos los campos.");
+        window.location="../Crud_comercios.php";
+        </script>';
+    exit; // Detener la ejecución del código si hay campos vacíos
+}
+
 // Verificar si ya existe un registro con el mismo nombre de negocio
 $consultaExistencia = mysqli_query($conexion, "SELECT COUNT(*) FROM `tb_negocio` WHERE `Nombre` = '$Negocio'");
 $existeRegistro = mysqli_fetch_array($consultaExistencia)[0];
@@ -55,5 +65,6 @@ if ($existeRegistro) {
 }
 
 mysqli_close($conexion);
+
 ?>
 

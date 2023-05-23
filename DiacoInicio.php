@@ -36,7 +36,7 @@
 <body>
 
 
-	<div class="card crdbody">
+<div class="card crdbody">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">DIACO</a>
@@ -57,8 +57,8 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="Quejas.php">Pantalla de queja</a></li>
-                                <li><a class="dropdown-item" href="Crud_comercios">Comercios</a></li>
-                                <li><a class="dropdown-item" href="Crud_Propietarios">Propietarios</a></li>
+                                <li><a class="dropdown-item" href="Crud_comercios.php">Comercios</a></li>
+                                <li><a class="dropdown-item" href="Crud_Propietarios.php">Propietarios</a></li>
                                 <li><a class="dropdown-item" href="QuejasLista.php">Lista de quejas</a></li>
                             </ul>
                         </li>

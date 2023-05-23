@@ -356,25 +356,13 @@
                 </div> <!-- ROW FIN -->
 
                 <div class="row crdbody justify-content-center">
-                    <div class="form-floating col-sm-12">
-                        <textarea class="form-control" name="Detalledequeja" placeholder="Leave a comment here"
-                            id="floatingTextarea2" style="height: 100px"></textarea>
-                        <label for="floatingTextarea2">Detalle de queja</label>
-                    </div>
-                </div>
-
-                <div class="row crdbody justify-content-center">
-                    <div class="form-floating col-sm-12">
-                        <textarea class="form-control" name="Sol" placeholder="Leave a comment here"
-                            id="floatingTextarea2" style="height: 100px"></textarea>
-                        <label for="floatingTextarea2">Detalle de Solucion</label>
-                    </div>
-                </div>
-
-                <div class="row crdbody justify-content-center">
                     <div class="col-sm-3">
                         <div class="input-group">
-                            <button class="btn btn-success me-2"><i class="fas fa-paper-plane"></i> EnviarQueja</button>
+                            <button class="btn btn-success me-2"
+                                onclick="window.open('php/Reportes_fpdf/repo.php', '_blank')">
+                                <i class="fa-solid fa-print"></i> Imprimir Reporte
+                            </button>
+
                             <button class="btn btn-danger" onclick="reloadPage()"><i
                                     class="fas fa-trash-alt"></i>Cancelar</button>
                             <script>

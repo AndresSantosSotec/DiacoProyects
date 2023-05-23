@@ -136,7 +136,7 @@
                                 <option value="<?php echo $regs['id_region']; ?>"><?php echo $regs['Region']; ?>
                                 </option>
                                 <?php } ?>
-                                <option selected>------</option>
+                         
                             </select>
                         </div>
                     </div>
@@ -161,7 +161,7 @@
                                 <option value="<?php echo $munis['id_municipio']; ?>"><?php echo $munis['municipio']; ?>
                                 </option>
                                 <?php } ?>
-                                <option selected>------</option>
+                            
                             </select>
                         </div>
                     </div>
@@ -173,7 +173,7 @@
                                 <?php while ($Dues = mysqli_fetch_array($due)) { ?>
                                 <option value="<?php echo $Dues['id_dueño']; ?>"><?php echo $Dues['Nombre']; ?></option>
                                 <?php } ?>
-                                <option selected>------</option>
+                              
                             </select>
                         </div>
                     </div>
@@ -186,7 +186,7 @@
                             <?php while ($NE = mysqli_fetch_array($nego)) { ?>
                             <option value="<?php echo $NE['id_tip_nego']; ?>"><?php echo $NE['TipoNegocio']; ?></option>
                             <?php } ?>
-                            <option selected>------</option>
+                          
                         </select>
                     </div>
                 </div>
