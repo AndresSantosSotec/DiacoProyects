@@ -379,6 +379,65 @@
 
     </div>
 
+    <div class="card crdbody">
+        <div class="card-header">
+            <h4>Quejas Listado
+            </h4>
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Telefono</th>
+                        <th scope="col">Dpi</th>
+                        <th scope="col">Direccion</th>
+                        <th scope="col">Nit</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+            $consulta = mysqli_query($conexion, "SELECT id_dueño, Nombre, Telefono_dueño, Dpi, Direccion, Nit, Email FROM `tb_dueño`;");
+            while ($re = mysqli_fetch_array($consulta, MYSQLI_NUM)) {
+                echo '
+                    <tr>
+                        <th scope="row">' . $re[0] . '</th>
+                        <td>' . $re[1] . '</td>
+                        <td>' . $re[2] . '</td>
+                        <td>' . $re[3] . '</td>
+                        <td>' . $re[4] . '</td>
+                        <td>' . $re[5] . '</td>
+                        <td>' . $re[6] . '</td>
+                        <td>
+                            <button type="button" class="btn btn-primary" onclick="editarPropietario(' . $re[0] . ', \'' . $re[1] . '\', \'' . $re[2] . '\', \'' . $re[3] . '\', \'' . $re[4] . '\', \'' . $re[5] . '\', \'' . $re[6] . '\')">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button type="button" class="btn btn-danger" id="btnEliminar"><i class="fa-solid fa-trash"></i></button>
+                        </td>
+                    </tr>';
+            }
+            ?>
+                </tbody>
+            </table>
+        </div>
+
+        <script>
+        function editarPropietario(id, nombre, telefono, dpi, direccion, nit, email) {
+            document.getElementById('prod').value = nombre;
+            document.getElementById('tel').value = telefono;
+            document.getElementById('DPI').value = dpi;
+            document.getElementById('Dir_dueño').value = direccion;
+            document.getElementById('NIT').value = nit;
+            document.getElementById('email').value = email;
+        }
+        </script>
+
+    </div>
+    </div>
+
 
     <script src="https://kit.fontawesome.com/d3fd75469a.js" crossorigin="anonymous"></script>
 

@@ -137,8 +137,8 @@
                     <div class="form-group col-sm-3">
                         <div class="input-group">
                             <span class="input-group-text">DPI</span>
-                            <input type="number" class="form-control" id="DPI" placeholder="Direccio Fisiaca del Negocio"
-                                name="DPI" required>
+                            <input type="number" class="form-control" id="DPI"
+                                placeholder="Direccio Fisiaca del Negocio" name="DPI" required>
                         </div>
                     </div>
                 </div>
