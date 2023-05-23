@@ -119,7 +119,7 @@
                     <div class="form-group col-sm-3">
                         <div class="input-group">
                             <span class="input-group-text">Telefono</span>
-                            <input type="text" class="form-control" id="tel" placeholder="Telefono de Negocio"
+                            <input type="number" class="form-control" id="tel" placeholder="Telefono de Negocio"
                                 name="Telefono" value="" required>
                         </div>
                     </div>
@@ -130,14 +130,14 @@
                     <div class="form-group col-sm-3">
                         <div class="input-group">
                             <span class="input-group-text">Nit</span>
-                            <input type="text" class="form-control" id="NIT" name="NIT" required>
+                            <input type="number" class="form-control" id="NIT" name="NIT" required>
                         </div>
                     </div>
 
                     <div class="form-group col-sm-3">
                         <div class="input-group">
                             <span class="input-group-text">DPI</span>
-                            <input type="text" class="form-control" id="DPI" placeholder="Direccio Fisiaca del Negocio"
+                            <input type="number" class="form-control" id="DPI" placeholder="Direccio Fisiaca del Negocio"
                                 name="DPI" required>
                         </div>
                     </div>

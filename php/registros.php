@@ -36,7 +36,7 @@ if ($existeRegistro) {
     }
 } else {
     // Insertar nuevo registro
-    $insertarNegocio = "INSERT INTO `tb_negocio`(`Nombre`, `Correo_Negocio`, `Telefono_Negocio`, `Direccion`, `Tipo_Negocio`, `Id_dueño`, `Id_departamento`, `Id_muni`, `id_region`) VALUES ('$Negocio', '$Email', '$Telefono', '$Dir_Negocio', '$Nego', '$Dueño', '$Departamento', '$Municipio', '$Region')";
+    $insertarNegocio = "INSERT INTO `tb_negocio`(`Nombre`, `Correo_Negocio`, `Telefono_Negocio`, `Direccion`, `Tipo_Negocio`, `Id_dueño`, `Id_departamento`, `Id_muni`, `id_region`,Estado) VALUES ('$Negocio', '$Email', '$Telefono', '$Dir_Negocio', '$Nego', '$Dueño', '$Departamento', '$Municipio', '$Region','1')";
     $ejecutarInsertar = mysqli_query($conexion, $insertarNegocio);
 
     if ($ejecutarInsertar) {

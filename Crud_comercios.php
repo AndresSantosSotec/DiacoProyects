@@ -120,7 +120,7 @@
                     <div class="form-group col-sm-3">
                         <div class="input-group">
                             <span class="input-group-text">Teléfono</span>
-                            <input type="text" class="form-control" id="tel" placeholder="Teléfono de Negocio"
+                            <input type="number" class="form-control" id="tel" placeholder="Teléfono de Negocio"
                                 name="Telefono" value="" required>
                         </div>
                     </div>
@@ -182,7 +182,7 @@
                 <div class="form-group col-sm-3">
                     <div class="input-group">
                         <span class="input-group-text">Tipo de negocio</span>
-                        <select id="neg" name="Nego" class="form-select">
+                        <select id="neg" name="Nego" class="form-select" >
                             <?php while ($NE = mysqli_fetch_array($nego)) { ?>
                             <option value="<?php echo $NE['id_tip_nego']; ?>"><?php echo $NE['TipoNegocio']; ?></option>
                             <?php } ?>
