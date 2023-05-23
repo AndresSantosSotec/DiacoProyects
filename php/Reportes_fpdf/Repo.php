@@ -14,12 +14,12 @@ class PDF extends FPDF
 
        // $this->Cell(0, 0, '', 0, 1, 'L', $this->Image('../../../includes/img/logomicro.png', 170, 20, 25));
         //pruebas
-        $this->Cell(130, 4, 'Rporte de queja Prueba', 0, 1, 'C');
+        $this->Cell(130, 4, 'Detalle de Queja', 0, 1, 'C');
         $this->Cell(130, 4, 'Wea fome culiado', 0, 1, 'C');
 
         $this->SetFont('Arial', 'I', 8);
         $this->Cell(50, 3, utf8_decode("FECHA: " . date("Y/m/d")), 0, 1, 'L');
-        $this->Cell(50, 3, 'Email:wea@Sotec.com.gt' , 0, 1, 'L');
+        $this->Cell(50, 3, 'Email:Diaco@Diacodom.com.gt' , 0, 1, 'L');
         $this->Cell(50, 3, 'Tel:' .'4589-2612'. " Y " , 0, 1, 'L');
         $this->Cell(50, 3, 'NIT:' . '2005264-2', 0, 1, 'L');
 
@@ -41,7 +41,7 @@ class PDF extends FPDF
         //cuerpo de la segunda Parte del dictamen
         $this->setFont('Courier', 'B', 9);
         $this->setX(20);
-        $this->Cell(160, 5, utf8_decode("Dictamen de Credito No. (sustituir por datos bd):"));
+        $this->Cell(160, 5, utf8_decode("Queja No. (sustituir por datos bd):"));
         $this->ln();
         $this->setFont('Courier', 'B', 9);
         $this->setX(20);
