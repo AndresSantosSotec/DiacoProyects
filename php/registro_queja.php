@@ -25,13 +25,30 @@ $Nit=$_POST['Nit'];
 $Detalledequeja=$_POST['Detalledequeja'];
 $Sol=$_POST['Sol'];
 
+function generarCorrelativo() {
+    $dia = date('d');
+    $mes = date('m');
+    $anio = date('Y');
+    $minuto = date('i');
+    $segundo = date('s');
+
+    $correlativo = $dia . $mes . $anio . $minuto . $segundo;
+    $correlativo = str_pad($correlativo, 6, '0', STR_PAD_LEFT);
+    
+    return $correlativo;
+}
+
+// Ejemplo de uso
+$correlativo = generarCorrelativo();
+echo "Correlativo generado: " . $correlativo;
+
 
 $queja=$queja = "INSERT INTO `tb_queja`
 (`NegocioQueja`, `Dirqueja`, `EmailQueja`, `Departamento`, `Municipio`, `Region`, 
 `Fecha_queja`, `Propietario`, `Tip_queja`, `Factura`, `Telefono`, `NIT`, `Detalle_queja`, 
-`Detalle_solucion`) VALUES ('$Negocio', '$Dir_Negocio', '$Email', '$Departamento', '$Municipio', 
+`Detalle_solucion`,ccod_queja) VALUES ('$Negocio', '$Dir_Negocio', '$Email', '$Departamento', '$Municipio', 
 '$Region', '$Fecha', '$Propietario', '$Tip_Queja', '$Factura', '$Telefono', '$Nit', 
-'$Detalledequeja', '$Sol')";
+'$Detalledequeja', '$Sol','$correlativo')";
 
 
 $ejecutar=mysqli_query($conexion, $queja);
