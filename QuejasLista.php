@@ -97,146 +97,9 @@
                 <!-- FORMULARIO DE PRUEBAS   --->
 
                 <!-- Botón -->
-                <div class="row crdbody">
-                    <div class="col-md-3">
-                        <button type="button" class="btn btn-outline-primary" title="Buscar Cliente"
-                            data-bs-toggle="modal" data-bs-target="#buscar_cli_gen">
-                            <i class="fa-solid fa-magnifying-glass"></i> Buscar Negocio
-                        </button>
-                    </div>
-                </div>
 
                 <!-- Modal -->
-                <div class="modal fade" id="buscar_cli_gen" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-xl">
-                        <!-- Utilizamos modal-xl para el tamaño máximo -->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Buscar Negocio</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <h4>Tabla de Comercio</h4>
-                                <div class="table-responsive">
-                                    <!-- Agregamos la clase table-responsive para hacer la tabla scrollable en caso de que haya muchos registros -->
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">Nombre</th>
-                                                <th scope="col">Correo</th>
-                                                <th scope="col">Teléfono</th>
-                                                <th scope="col">Dirección</th>
-                                                <th scope="col">Tipo Negocio</th>
-                                                <th scope="col">Dueño</th>
-                                                <th scope="col">Departamento</th>
-                                                <th scope="col">Municipio</th>
-                                                <th scope="col">Región</th>
-                                                <th scope="col">Opciones</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-                            $consulta = mysqli_query($conexion, "SELECT `id_negocio`, `Nombre`, `Correo_Negocio`, `Telefono_Negocio`, `Direccion`,
-                            `Tipo_Negocio`, `Id_dueño`, `Id_departamento`, `Id_muni`, `id_region` FROM `tb_negocio` where Estado=1");
-                            $i = 0;
 
-                            while ($re = mysqli_fetch_array($consulta, MYSQLI_NUM)) {
-                                $i++;
-                                $tipoNegocio = obtenerNombreTipoNegocio($re[5]);
-                                $dueno = obtenerNombreDueno($re[6]);
-                                $departamento = obtenerNombreDepartamento($re[7]);
-                                $municipio = obtenerNombreMunicipio($re[8]);
-                                $region = obtenerNombreRegion($re[9]);
-
-                                echo '
-                                    <tr>
-                                        <th scope="row">' . $re[0] . '</th>
-                                        <td>' . $re[1] . '</td>
-                                        <td>' . $re[2] . '</td>
-                                        <td>' . $re[3] . '</td>
-                                        <td>' . $re[4] . '</td>
-                                        <td>' . $tipoNegocio . '</td>
-                                        <td>' . $dueno . '</td>
-                                        <td>' . $departamento . '</td>
-                                        <td>' . $municipio . '</td>
-                                        <td>' . $region . '</td>
-                                        <td>
-                                            <button type="button" class="btn btn-success" onclick="llenarFormulario(' . $re[0] . ', \'' . $re[1] . '\', \'' . $re[2] . '\', \'' . $re[3] . '\', \'' . $re[4] . '\', \'' . $re[5] . '\', \'' . $re[6] . '\', \'' . $re[7] . '\', \'' . $re[8] . '\', \'' . $re[9] . '\')">
-                                            <i class="fa-solid fa-eye"></i>
-                                            </button>
-                                        </td>
-                                    </tr>';
-                            }
-                            //funciones para la recuperacion de los datos
-                                function obtenerNombreTipoNegocio($id)
-                                {
-                                    global $conexion;
-                                    $consulta = mysqli_query($conexion, "SELECT `TipoNegocio` FROM `tb_tip_negocio` WHERE `id_tip_nego` = '$id'");
-                                    $resultado = mysqli_fetch_array($consulta);
-                                    return $resultado[0];
-                                }
-
-                                function obtenerNombreDueno($id)
-                                {
-                                    global $conexion;
-                                    $consulta = mysqli_query($conexion, "SELECT `Nombre` FROM `tb_dueño` WHERE `id_dueño` = '$id'");
-                                    $resultado = mysqli_fetch_array($consulta);
-                                    return $resultado[0];
-                                }
-
-                                function obtenerNombreDepartamento($id)
-                                {
-                                    global $conexion;
-                                    $consulta = mysqli_query($conexion, "SELECT `Departamento` FROM `tb_departamentos` WHERE `id_departamento` = '$id'");
-                                    $resultado = mysqli_fetch_array($consulta);
-                                    return $resultado[0];
-                                }
-
-                                function obtenerNombreMunicipio($id)
-                                {
-                                    global $conexion;
-                                    $consulta = mysqli_query($conexion, "SELECT `municipio` FROM `bd_municipio` WHERE `id_municipio` = '$id'");
-                                    $resultado = mysqli_fetch_array($consulta);
-                                    return $resultado[0];
-                                }
-
-                                function obtenerNombreRegion($id)
-                                {
-                                    global $conexion;
-                                    $consulta = mysqli_query($conexion, "SELECT `Region` FROM `tb_region` WHERE `id_region` = '$id'");
-                                    $resultado = mysqli_fetch_array($consulta);
-                                    return $resultado[0];
-                                }
-                            ?>
-                                            <script>
-                                            function llenarFormulario(idNegocio, nombre, correo, telefono, direccion,
-                                                tipoNegocio, idDueno,
-                                                idDepartamento, idMunicipio, idRegion) {
-                                                document.getElementById('prod').value = nombre;
-                                                document.getElementById('codcre').value = direccion;
-                                                document.getElementById('email').value = correo;
-                                                document.getElementById('tel').value = telefono;
-                                                document.getElementById('neg').value = tipoNegocio;
-                                                document.getElementById('pro').value = idDueno;
-                                                document.getElementById('reg').value = idRegion;
-                                                document.getElementById('dep').value = idDepartamento;
-                                                document.getElementById('mun').value = idMunicipio;
-                                            }
-                                            </script>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                <!-- Puedes agregar otros botones de acción aquí si es necesario -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <div class="row crdbody">
                     <div class="form-group col-sm-3">
@@ -272,7 +135,7 @@
                             </select>
                         </div>
                     </div>
-                    ,
+                    
                     <div class="form-group col-sm-3">
                         <div class="input-group">
                             <span class="input-group-text">Municipio</span>
@@ -400,7 +263,7 @@
                 </thead>
                 <tbody>
                     <?php
-            $consulta = mysqli_query($conexion, "SELECT id_dueño, Nombre, Telefono_dueño, Dpi, Direccion, Nit, Email FROM `tb_dueño`;");
+            $consulta = mysqli_query($conexion, "SELECT id_queja,NegocioQueja,Dirqueja,EmailQueja,Departamento,Municipio,Region,Fecha_queja,Tip_queja,Factura,Telefono,NIT,Detalle_queja,Detalle_solucion,ccod_queja FROM `tb_queja`;");
             while ($re = mysqli_fetch_array($consulta, MYSQLI_NUM)) {
                 echo '
                     <tr>
