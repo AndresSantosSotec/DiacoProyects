@@ -247,24 +247,25 @@
                     $region = obtenerNombreRegion($re[9]); // Obtener nombre de la región por su ID
 
                     echo '
-                        <tr>
-                            <th scope="row">' . $re[0] . '</th>
-                            <td>' . $re[1] . '</td>
-                            <td>' . $re[2] . '</td>
-                            <td>' . $re[3] . '</td>
-                            <td>' . $re[4] . '</td>
-                            <td>' . $tipoNegocio . '</td>
-                            <td>' . $dueno . '</td>
-                            <td>' . $departamento . '</td>
-                            <td>' . $municipio . '</td>
-                            <td>' . $region . '</td>
-                            <td>
-                                <button type="button" class="btn btn-primary" onclick="llenarFormulario(' . $re[0] . ', \'' . $re[1] . '\', \'' . $re[2] . '\', \'' . $re[3] . '\', \'' . $re[4] . '\', \'' . $re[5] . '\', \'' . $re[6] . '\', \'' . $re[7] . '\', \'' . $re[8] . '\', \'' . $re[9] . '\')">
-                                    <i class="fa-solid fa-pen"></i>
-                                </button>
-                                <button type="button" class="btn btn-danger" id="btnEliminar"><i class="fa-solid fa-trash"></i></button>
-                            </td>
-                        </tr>';
+                    <tr>
+                        <th scope="row">' . $i . '</th>
+                        <td>' . $re[1] . '</td>
+                        <td>' . $re[2] . '</td>
+                        <td>' . $re[3] . '</td>
+                        <td>' . $re[4] . '</td>
+                        <td>' . $tipoNegocio . '</td>
+                        <td>' . $dueno . '</td>
+                        <td>' . $departamento . '</td>
+                        <td>' . $municipio . '</td>
+                        <td>' . $region . '</td>
+                        <td>
+                            <button type="button" class="btn btn-primary" onclick="llenarFormulario(' . $re[0] . ', \'' . $re[1] . '\', \'' . $re[2] . '\', \'' . $re[3] . '\', \'' . $re[4] . '\', \'' . $re[5] . '\', \'' . $re[6] . '\', \'' . $re[7] . '\', \'' . $re[8] . '\', \'' . $re[9] . '\')">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button type="button" class="btn btn-danger" id="btnEliminar' . $re[0] . '" onclick="eliminarCampo(' . $re[0] . ')"><i class="fa-solid fa-trash"></i></button>
+                        </td>
+                    </tr>';
+                
                 }
 
                 // Funciones para obtener los nombres correspondientes a los IDs de los campos
@@ -320,6 +321,25 @@
                         document.getElementById('reg').value = idRegion;
                         document.getElementById('dep').value = idDepartamento;
                         document.getElementById('mun').value = idMunicipio;
+                    }
+
+                    function eliminarCampo(idCampo) {
+                      if (confirm("¿Estás seguro de que deseas eliminar este campo?")) {
+                        // Realizar la solicitud AJAX para eliminar el campo
+                        $.ajax({
+                          type: "POST",
+                          url: "php/registros.php", // Archivo PHP que realizará la eliminación en la base de datos
+                          data: { idCampo: idCampo },
+                          success: function (response) {
+                            // Manejar la respuesta del servidor (por ejemplo, mostrar un mensaje de éxito y actualizar la tabla)
+                            alert("Campo eliminado correctamente");
+                            location.reload(); // Recargar la página para reflejar los cambios
+                          },
+                          error: function () {
+                            alert("Error al eliminar el campo");
+                          }
+                        });
+                      }
                     }
                     </script>
                 </tbody>

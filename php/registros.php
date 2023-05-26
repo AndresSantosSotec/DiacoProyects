@@ -1,6 +1,22 @@
-
 <?php
 include 'conexion_be.php';
+
+// Verificar si se ha enviado una solicitud de eliminación
+if (isset($_POST['idCampo'])) {
+    $idCampo = $_POST['idCampo'];
+
+    // Realizar la lógica de eliminación en la base de datos
+    $eliminarCampo = "DELETE FROM `tb_negocio` WHERE `id_negocio` = '$idCampo'";
+    $ejecutarEliminar = mysqli_query($conexion, $eliminarCampo);
+
+    if ($ejecutarEliminar) {
+        echo "Campo eliminado correctamente";
+        exit; // Detener la ejecución del código
+    } else {
+        echo "Error al eliminar el campo";
+        exit; // Detener la ejecución del código
+    }
+}
 
 $Negocio = $_POST['Negocio'];
 $Dir_Negocio = $_POST['Dir_Negocio'];
@@ -67,4 +83,3 @@ if ($existeRegistro) {
 mysqli_close($conexion);
 
 ?>
-
