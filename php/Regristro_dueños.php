@@ -1,6 +1,24 @@
 <?php
 include 'conexion_be.php';
 
+// Verificar si se ha enviado una solicitud de eliminación
+if (isset($_POST['idCampo'])) {
+    $idCampo = $_POST['idCampo'];
+
+    // Realizar la lógica de eliminación en la base de datos
+    $eliminarCampo = "DELETE FROM `tb_dueño` WHERE `id_dueño` = '$idCampo'";
+    $ejecutarEliminar = mysqli_query($conexion, $eliminarCampo);
+
+    if ($ejecutarEliminar) {
+        echo "Campo eliminado correctamente";
+        exit; // Detener la ejecución del código
+    } else {
+        echo "Error al eliminar el campo";
+        exit; // Detener la ejecución del código
+    }
+}
+
+
 $Nombre = $_POST['Nombre'];
 $Dir_dueño = $_POST['Dir_dueño'];
 $Email = $_POST['Email'];

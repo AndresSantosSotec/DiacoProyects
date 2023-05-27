@@ -24,8 +24,10 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="css/normalize.css">
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
@@ -198,7 +200,7 @@
                             <button type="button" class="btn btn-primary" onclick="editarPropietario(' . $re[0] . ', \'' . $re[1] . '\', \'' . $re[2] . '\', \'' . $re[3] . '\', \'' . $re[4] . '\', \'' . $re[5] . '\', \'' . $re[6] . '\')">
                                 <i class="fa-solid fa-pen"></i>
                             </button>
-                            <button type="button" class="btn btn-danger" id="btnEliminar"><i class="fa-solid fa-trash"></i></button>
+                            <button type="button" class="btn btn-danger" id="btnEliminar' . $re[0] . '" onclick="eliminarCampo(' . $re[0] . ')"><i class="fa-solid fa-trash"></i></button>
                         </td>
                     </tr>';
             }
@@ -216,6 +218,25 @@
             document.getElementById('NIT').value = nit;
             document.getElementById('email').value = email;
         }
+
+        function eliminarCampo(idCampo) {
+                      if (confirm("¿Estás seguro de que deseas eliminar este campo?")) {
+                        // Realizar la solicitud AJAX para eliminar el campo
+                        $.ajax({
+                          type: "POST",
+                          url: "php/Regristro_dueños.php", // Archivo PHP que realizará la eliminación en la base de datos
+                          data: { idCampo: idCampo },
+                          success: function (response) {
+                            // Manejar la respuesta del servidor (por ejemplo, mostrar un mensaje de éxito y actualizar la tabla)
+                            alert("Campo eliminado correctamente");
+                            location.reload(); // Recargar la página para reflejar los cambios
+                          },
+                          error: function () {
+                            alert("Error al eliminar el campo");
+                          }
+                        });
+                      }
+                    }
         </script>
 
     </div>
