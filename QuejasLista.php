@@ -243,51 +243,98 @@
     </div>
 
     <div class="card crdbody">
-        <div class="card-header">
-            <h4>Quejas Listado
-            </h4>
-        </div>
-        <div class="card-body">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Telefono</th>
-                        <th scope="col">Dpi</th>
-                        <th scope="col">Direccion</th>
-                        <th scope="col">Nit</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Opciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-            $consulta = mysqli_query($conexion, "SELECT id_queja,NegocioQueja,Dirqueja,EmailQueja,Departamento,Municipio,Region,Fecha_queja,Tip_queja,Factura,Telefono,NIT,Detalle_queja,Detalle_solucion,ccod_queja FROM `tb_queja`;");
-            while ($re = mysqli_fetch_array($consulta, MYSQLI_NUM)) {
-                echo '
+    <div class="card-header">
+        <h4>Quejas Listado</h4>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Negocio Queja</th>
+                    <th scope="col">Dirección Queja</th>
+                    <th scope="col">Departamento</th>
+                    <th scope="col">Municipio</th>
+                    <th scope="col">Fecha Queja</th>
+                    <th scope="col">Tipo Queja</th>
+                    <th scope="col">Factura</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col">Detalle Queja</th>
+                    <th scope="col">Detalle Solución</th>
+                    <th scope="col">Código Queja</th>
+                    <th scope="col">Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                $consulta = mysqli_query($conexion, "SELECT id_queja,NegocioQueja,Dirqueja,EmailQueja,Departamento,Municipio,Region,Fecha_queja,Tip_queja,Factura,Telefono,NIT,Detalle_queja,Detalle_solucion,ccod_queja FROM `tb_queja`;");
+                while ($re = mysqli_fetch_array($consulta, MYSQLI_NUM)) {
+                    echo '
                     <tr>
                         <th scope="row">' . $re[0] . '</th>
                         <td>' . $re[1] . '</td>
                         <td>' . $re[2] . '</td>
-                        <td>' . $re[3] . '</td>
-                        <td>' . $re[4] . '</td>
-                        <td>' . $re[5] . '</td>
-                        <td>' . $re[6] . '</td>
+                        <td>' . obtenerNombreDepartamento($re[4]) . '</td>
+                        <td>' . obtenerNombreMunicipio($re[5]) . '</td>
+                        <td>' . $re[7] . '</td>
+                        <td>' . obtenerNombreTipoNegocio($re[8]) . '</td>
+                        <td>' . $re[9] . '</td>
+                        <td>' . $re[10] . '</td>
+                        <td>' . $re[11] . '</td>
+                        <td>' . $re[13] . '</td>
+                        <td>' . $re[14] . '</td>
                         <td>
-                            <button type="button" class="btn btn-primary" onclick="editarPropietario(' . $re[0] . ', \'' . $re[1] . '\', \'' . $re[2] . '\', \'' . $re[3] . '\', \'' . $re[4] . '\', \'' . $re[5] . '\', \'' . $re[6] . '\')">
-                                <i class="fa-solid fa-pen"></i>
+                            <button type="button" class="btn btn-success" onclick="editarPropietario(' . $re[0] . ', \'' . $re[1] . '\', \'' . $re[2] . '\', \'' . $re[3] . '\', \'' . $re[4] . '\', \'' . $re[5] . '\', \'' . $re[6] . '\')">
+                            <i class="fa-solid fa-eye"></i>
                             </button>
-                            <button type="button" class="btn btn-danger" id="btnEliminar"><i class="fa-solid fa-trash"></i></button>
                         </td>
                     </tr>';
-            }
-            ?>
-                </tbody>
-            </table>
-        </div>
+                }
+                function obtenerNombreTipoNegocio($id)
+                {
+                    global $conexion;
+                    $consulta = mysqli_query($conexion, "SELECT `TipoNegocio` FROM `tb_tip_negocio` WHERE `id_tip_nego` = '$id'");
+                    $resultado = mysqli_fetch_array($consulta);
+                    return $resultado[0];
+                }
 
-        <script>
+                function obtenerNombreDueno($id)
+                {
+                    global $conexion;
+                    $consulta = mysqli_query($conexion, "SELECT `Nombre` FROM `tb_dueño` WHERE `id_dueño` = '$id'");
+                    $resultado = mysqli_fetch_array($consulta);
+                    return $resultado[0];
+                }
+
+                function obtenerNombreDepartamento($id)
+                {
+                    global $conexion;
+                    $consulta = mysqli_query($conexion, "SELECT `Departamento` FROM `tb_departamentos` WHERE `id_departamento` = '$id'");
+                    $resultado = mysqli_fetch_array($consulta);
+                    return $resultado[0];
+                }
+
+                function obtenerNombreMunicipio($id)
+                {
+                    global $conexion;
+                    $consulta = mysqli_query($conexion, "SELECT `municipio` FROM `bd_municipio` WHERE `id_municipio` = '$id'");
+                    $resultado = mysqli_fetch_array($consulta);
+                    return $resultado[0];
+                }
+
+                function obtenerNombreRegion($id)
+                {
+                    global $conexion;
+                    $consulta = mysqli_query($conexion, "SELECT `Region` FROM `tb_region` WHERE `id_region` = '$id'");
+                    $resultado = mysqli_fetch_array($consulta);
+                    return $resultado[0];
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
         function editarPropietario(id, nombre, telefono, dpi, direccion, nit, email) {
             document.getElementById('prod').value = nombre;
             document.getElementById('tel').value = telefono;
@@ -296,7 +343,9 @@
             document.getElementById('NIT').value = nit;
             document.getElementById('email').value = email;
         }
-        </script>
+    </script>
+</div>
+</div>
 
     </div>
     </div>
