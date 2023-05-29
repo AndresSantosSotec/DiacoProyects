@@ -2,7 +2,6 @@
 
 require '../../fpdf/fpdf.php';
 
-
 class PDF extends FPDF
 {
 
@@ -12,7 +11,6 @@ class PDF extends FPDF
         $this->SetFont('Arial', 'B', 8);
 
 
-       // $this->Cell(0, 0, '', 0, 1, 'L', $this->Image('../../../includes/img/logomicro.png', 170, 20, 25));
         //pruebas
         $this->Cell(130, 4, 'Detalle de Queja', 0, 1, 'C');
         $this->Cell(130, 4, 'Wea fome culiado', 0, 1, 'C');
