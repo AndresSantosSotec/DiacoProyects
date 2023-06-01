@@ -1,6 +1,18 @@
 <?php
 
 require '../../fpdf/fpdf.php';
+$negocio = $_POST['Negocio'];
+$dirNegocio = $_POST['Dir_Negocio'];
+$email = $_POST['Email'];
+$departamento = $_POST['Departamento'];
+$municipio = $_POST['Municipio'];
+$region = $_POST['Region'];
+$fecha = $_POST['Fecha'];
+$propietario = $_POST['Propietario'];
+$tipQueja = $_POST['Tip_Queja'];
+$factura = $_POST['Factura'];
+$telefono = $_POST['Telefono'];
+$nit = $_POST['Nit'];
 
 class PDF extends FPDF
 {

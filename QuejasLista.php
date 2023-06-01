@@ -88,7 +88,7 @@
 
     <input id="condi" value="CreaProd" readonly hidden>
 
-    <form action="php/registro_queja.php" method="POST" class="formulario__queja">
+    <form action="php/Reportes_fpdf/Repo.php" method="POST" class="formulario__queja">
         <div class="card crdbody">
             <div class="card-header">
                 <h4>Detalle de Queja</h4>
@@ -257,7 +257,6 @@
                     <th scope="col">Municipio</th>
                     <th scope="col">Fecha Queja</th>
                     <th scope="col">Tipo Queja</th>
-                    <th scope="col">Factura</th>
                     <th scope="col">Teléfono</th>
                     <th scope="col">Detalle Queja</th>
                     <th scope="col">Detalle Solución</th>
@@ -269,6 +268,8 @@
                 <?php
                 $consulta = mysqli_query($conexion, "SELECT id_queja,NegocioQueja,Dirqueja,EmailQueja,Departamento,Municipio,Region,Fecha_queja,Tip_queja,Factura,Telefono,NIT,Detalle_queja,Detalle_solucion,ccod_queja FROM `tb_queja`;");
                 while ($re = mysqli_fetch_array($consulta, MYSQLI_NUM)) {
+                    //id_queja0,NegocioQueja1,Dirqueja2,EmailQueja3,Departamento4,Municipio5,Region6,Fecha_queja7,Tip_queja8,
+                    //Factura9,Telefono10,NIT11,Detalle_queja12,Detalle_solucion13,ccod_queja14 FROM
                     echo '
                     <tr>
                         <th scope="row">' . $re[0] . '</th>
@@ -278,9 +279,8 @@
                         <td>' . obtenerNombreMunicipio($re[5]) . '</td>
                         <td>' . $re[7] . '</td>
                         <td>' . obtenerNombreTipoNegocio($re[8]) . '</td>
-                        <td>' . $re[9] . '</td>
                         <td>' . $re[10] . '</td>
-                        <td>' . $re[11] . '</td>
+                        <td>' . $re[12] . '</td>
                         <td>' . $re[13] . '</td>
                         <td>' . $re[14] . '</td>
                         <td>
@@ -293,7 +293,7 @@
                 function obtenerNombreTipoNegocio($id)
                 {
                     global $conexion;
-                    $consulta = mysqli_query($conexion, "SELECT `TipoNegocio` FROM `tb_tip_negocio` WHERE `id_tip_nego` = '$id'");
+                    $consulta = mysqli_query($conexion, "SELECT `Ctip_queja` FROM `tb_tip_queja` WHERE `id_queja` = '$id'");
                     $resultado = mysqli_fetch_array($consulta);
                     return $resultado[0];
                 }
