@@ -1,18 +1,7 @@
 <?php
 
 require '../../fpdf/fpdf.php';
-$negocio = $_POST['Negocio'];
-$dirNegocio = $_POST['Dir_Negocio'];
-$email = $_POST['Email'];
-$departamento = $_POST['Departamento'];
-$municipio = $_POST['Municipio'];
-$region = $_POST['Region'];
-$fecha = $_POST['Fecha'];
-$propietario = $_POST['Propietario'];
-$tipQueja = $_POST['Tip_Queja'];
-$factura = $_POST['Factura'];
-$telefono = $_POST['Telefono'];
-$nit = $_POST['Nit'];
+
 
 class PDF extends FPDF
 {
@@ -25,7 +14,6 @@ class PDF extends FPDF
 
         //pruebas
         $this->Cell(130, 4, 'Detalle de Queja', 0, 1, 'C');
-        $this->Cell(130, 4, 'Wea fome culiado', 0, 1, 'C');
 
         $this->SetFont('Arial', 'I', 8);
         $this->Cell(50, 3, utf8_decode("FECHA: " . date("Y/m/d")), 0, 1, 'L');
@@ -55,7 +43,7 @@ class PDF extends FPDF
         $this->ln();
         $this->setFont('Courier', 'B', 9);
         $this->setX(20);
-        $this->MultiCell(160, 5, utf8_decode("Fondos Propios: (sustituir por datos db)"));
+        $this->MultiCell(160, 5, utf8_decode("Tipo de queja: (sustituir por datos db)"));
         $this->line(0, 52, 220, 52);
         $this->ln();
         $this->setFont('Courier', 'B', 9);
@@ -243,42 +231,8 @@ class PDF extends FPDF
         $this->ln();
         //PAG2 END
 
-        //Aqui inicia la tercera hoja del dictamen
-        $this->AddPage();
-        $this->SetX(20);
-        $this->SetFont('Courier', '', 7);
-        $this->MultiCell(160, 6, utf8_decode("N.o de cerdito:"));
-        $this->SetXY(45, 40);
-        $this->SetFont('Courier', '', 7);
-        $this->Cell(60, 4, utf8_decode("  "), 1, 1);
-        $this->SetX(20);
-        $this->SetFont('Courier', '', 7);
-        $this->MultiCell(160, 6, utf8_decode("Responsable"));
-        $this->SetXY(45, 45);
-        $this->SetFont('Courier', '', 7);
-        $this->Cell(60, 4, utf8_decode("  "), 1, 1);
-        $this->Ln();
-        $this->SetX(20);
-        $this->SetFont('Courier', 'B', 8);
-        //recuperar agencia de credito deptamento y municipio desde la base de datos
-        $this->MultiCell(160, 3, utf8_decode("EL COMITE DE CREDITO DE LA AGENCIA DE DESAROLLO ECONOMICO LOCAL DE IXCAN,ADEL-IXCAN CON SEDE DEN PLAYA GRANDEM IXCAN, EL QUICHE: "));
-        $this->SetX(20);
-        $this->SetFont('Courier', '', 8);
-        $this->MultiCell(160, 5, utf8_decode("con base al reglamento de creditos de ADEL-IXACN y el dictamen No."));
-        $this->SetX(20);
-        $this->SetFont('Courier', '', 8);
-        $this->MultiCell(160, 5, utf8_decode("departamento de creditos en fecha: "));
-        $this->SetX(20);
-        $this->SetFont('Courier', '', 8);
-        $this->MultiCell(160, 5, utf8_decode("por lo que tomando las consideraciones del comite de creditos "));
-        $this->SetFont('Courier', '', 8);
-        $this->SetX(20);
-        $this->MultiCell(160, 5, utf8_decode("La Facultad le confiere-------------------------------------------"));
-        $this->SetX(95);
-        $this->SetFont('Courier', 'B', 10);
-        $this->MultiCell(170, 5, utf8_decode("Resuelve"));
-        $this->Line(95, 92, 115, 92);
-        $this->ln();
+       
+        
         //modalidad
         //texto con datos a recuperar en base de datos
         $this->setX(20);
@@ -341,8 +295,6 @@ class PDF extends FPDF
 
 
 //aggregar las funcionesque seran pertinentes para la gebneracion de el cofdigo a emplearse de manera eficionete y corrrencta
-
-
 $pdf = new PDF();
 $pdf->AddPage();
 $pdf->SetFont('Courier', 'B', 16);

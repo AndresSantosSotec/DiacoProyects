@@ -335,15 +335,18 @@
     </div>
 
     <script>
-        function editarPropietario(id, nombre, telefono, dpi, direccion, nit, email) {
-            document.getElementById('prod').value = nombre;
-            document.getElementById('tel').value = telefono;
-            document.getElementById('DPI').value = dpi;
-            document.getElementById('Dir_dueño').value = direccion;
-            document.getElementById('NIT').value = nit;
-            document.getElementById('email').value = email;
-        }
-    </script>
+    function editarPropietario(negocio, direccion, email, departamento, municipio, fecha, tipoQueja) {
+        // Rellenar los campos del formulario con los valores recibidos
+        document.getElementById('prod').value = negocio;
+        document.getElementById('codcre').value = direccion;
+        document.getElementById('email').value = email;
+        document.getElementById('dep').value = departamento;
+        document.getElementById('mun').value = municipio;
+        document.getElementById('fecha').value = fecha;
+        document.getElementById('Mon').value = tipoQueja;
+    }
+</script>
+
 </div>
 </div>
 
