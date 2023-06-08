@@ -330,6 +330,8 @@
     <script>
     function ImpirmirQueja(negocio, direccion, email, departamento, municipio,region, fecha, propietario,tipoQueja,factura,Telefono,Nit) {
         // Rellenar los campos del formulario con los valores recibidos
+        //asjkdljkaljsdklas//
+        //asdasdasd
         document.getElementById('Nego').value = negocio;
         document.getElementById('codcre').value = direccion;
         document.getElementById('email').value = email;
