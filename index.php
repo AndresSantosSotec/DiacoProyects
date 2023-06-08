@@ -1,3 +1,15 @@
+<!--Creando para matener sesion iniciada  -->
+<?php
+    session_start();
+
+    if(isset($_SESSION['usuario'])){
+        header("location: DiacoInicio.php");
+    }
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,12 +47,11 @@
             <!--Formulario de Login y registro-->
             <div class="contenedor__login-register">
                 <!--Login-->
-                <form action="" class="formulario__login">
+                <form action="php/login_usuario_be.php"  method="POST" class="formulario__login">
                     <h2>Iniciar Sesión</h2>
-                    <input type="text" placeholder="Correo Electronico">
-                    <input type="password" placeholder="Contraseña">
-                    <button type="submit" class="btn btn-primary btn-lg btn-block"> <a href="DiacoInicio.php"
-                            class="btn btn-primary btn-lg btn-block">Inicio de sesión</a></button>
+                    <input type="text" placeholder="Correo Electronico" name = "correo">
+                    <input type="password" placeholder="Contraseña" name = "contrasena">
+                    <button> Inicio de sesión</button>
                 </form>
                 <!--Register-->
                 <form action="php/registro_usuario_be.php" method="POST" class="formulario__register">

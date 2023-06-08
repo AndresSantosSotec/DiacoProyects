@@ -62,6 +62,9 @@
                                 <li><a class="dropdown-item" href="QuejasLista.php">Lista de quejas</a></li>
                             </ul>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="php/cerrar_sesion.php">Cerrar Sesion</a>
+                        </li>
                     </ul>
                 </div>
             </div>
