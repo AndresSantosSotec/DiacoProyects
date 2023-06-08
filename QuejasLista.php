@@ -94,18 +94,11 @@
                 <h4>Detalle de Queja</h4>
             </div>
             <div class="card-body">
-                <!-- FORMULARIO DE PRUEBAS   --->
-
-                <!-- Botón -->
-
-                <!-- Modal -->
-
-
                 <div class="row crdbody">
                     <div class="form-group col-sm-3">
                         <div class="input-group">
                             <span class="input-group-text">Negocio</span>
-                            <input type="text" class="form-control" id="prod" name="Negocio" readonly>
+                            <input type="text" class="form-control" id="Nego" name="Negocio" readonly>
                         </div>
                     </div>
                     <div class="form-group col-sm-4">
@@ -284,46 +277,46 @@
                         <td>' . $re[13] . '</td>
                         <td>' . $re[14] . '</td>
                         <td>
-                            <button type="button" class="btn btn-success" onclick="editarPropietario(' . $re[0] . ', \'' . $re[1] . '\', \'' . $re[2] . '\', \'' . $re[3] . '\', \'' . $re[4] . '\', \'' . $re[5] . '\', \'' . $re[6] . '\')">
+                            <button type="button" class="btn btn-success" onclick="ImpirmirQueja(' . $re[0] . ', \'' . $re[1] . '\', \'' . $re[2] . '\', \'' . $re[3] . '\', \'' . $re[4] . '\', \'' . $re[5] . '\', \'' . $re[6] . '\')">
                             <i class="fa-solid fa-eye"></i>
                             </button>
                         </td>
                     </tr>';
                 }
-                function obtenerNombreTipoNegocio($id)
-                {
+                        function obtenerNombreTipoNegocio($id)
+                        {
                     global $conexion;
                     $consulta = mysqli_query($conexion, "SELECT `Ctip_queja` FROM `tb_tip_queja` WHERE `id_queja` = '$id'");
                     $resultado = mysqli_fetch_array($consulta);
                     return $resultado[0];
-                }
-
-                function obtenerNombreDueno($id)
-                {
+                        }
+                    
+                        function obtenerNombreDueno($id)
+                        {
                     global $conexion;
                     $consulta = mysqli_query($conexion, "SELECT `Nombre` FROM `tb_dueño` WHERE `id_dueño` = '$id'");
                     $resultado = mysqli_fetch_array($consulta);
                     return $resultado[0];
-                }
-
-                function obtenerNombreDepartamento($id)
-                {
+                        }
+                    
+                        function obtenerNombreDepartamento($id)
+                        {
                     global $conexion;
                     $consulta = mysqli_query($conexion, "SELECT `Departamento` FROM `tb_departamentos` WHERE `id_departamento` = '$id'");
                     $resultado = mysqli_fetch_array($consulta);
                     return $resultado[0];
-                }
-
-                function obtenerNombreMunicipio($id)
-                {
+                        }
+                    
+                        function obtenerNombreMunicipio($id)
+                        {
                     global $conexion;
                     $consulta = mysqli_query($conexion, "SELECT `municipio` FROM `bd_municipio` WHERE `id_municipio` = '$id'");
                     $resultado = mysqli_fetch_array($consulta);
                     return $resultado[0];
-                }
-
-                function obtenerNombreRegion($id)
-                {
+                        }
+                    
+                        function obtenerNombreRegion($id)
+                        {
                     global $conexion;
                     $consulta = mysqli_query($conexion, "SELECT `Region` FROM `tb_region` WHERE `id_region` = '$id'");
                     $resultado = mysqli_fetch_array($consulta);
@@ -335,9 +328,9 @@
     </div>
 
     <script>
-    function editarPropietario(negocio, direccion, email, departamento, municipio, fecha, tipoQueja) {
+    function ImpirmirQueja(negocio, direccion, email, departamento, municipio,region, fecha, propietario,tipoQueja,factura,Telefono,Nit) {
         // Rellenar los campos del formulario con los valores recibidos
-        document.getElementById('prod').value = negocio;
+        document.getElementById('Nego').value = negocio;
         document.getElementById('codcre').value = direccion;
         document.getElementById('email').value = email;
         document.getElementById('dep').value = departamento;

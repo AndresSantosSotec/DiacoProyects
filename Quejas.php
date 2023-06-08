@@ -153,7 +153,7 @@
                                             
                                                 echo '
                                                     <tr>
-                                                        <th scope="row">' . $re[0] . '</th>
+                                                        <th scope="row">' . $i . '</th>
                                                         <td>' . $re[1] . '</td>
                                                         <td>' . $re[2] . '</td>
                                                         <td>' . $re[3] . '</td>
@@ -176,6 +176,13 @@
                                                 {
                                                     global $conexion;
                                                     $consulta = mysqli_query($conexion, "SELECT `TipoNegocio` FROM `tb_tip_negocio` WHERE `id_tip_nego` = '$id'");
+                                                    $resultado = mysqli_fetch_array($consulta);
+                                                    return $resultado[0];
+                                                }
+
+                                                function nombreNego($id){
+                                                    global $conexion;
+                                                    $consulta = mysqli_query($conexion, "SELECT `id_negocio` FROM ``tb_negocio` WHERE `id_negocio` = '$id'");
                                                     $resultado = mysqli_fetch_array($consulta);
                                                     return $resultado[0];
                                                 }
