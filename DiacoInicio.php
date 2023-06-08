@@ -62,6 +62,9 @@
                                 <li><a class="dropdown-item" href="QuejasLista.php">Lista de quejas</a></li>
                             </ul>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="php/cerrar_sesion.php">Cerrar Sesion</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -124,19 +127,19 @@
                 </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active" data-bs-interval="10000">
-                        <img src="" class="d-block w-100" alt="...">
+                        <img src="assets/images/DIACO-1000x600.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
 
                         </div>
                     </div>
                     <div class="carousel-item" data-bs-interval="2000">
-                        <img src="" class="d-block w-100" alt="...">
+                        <img src="assets/images/Verificaciones-Diaco-2.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
 
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="" class="d-block w-100" alt="...">
+                        <img src="assets/images/verificaciones-diaco-scaled.jpg" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
 
                         </div>
